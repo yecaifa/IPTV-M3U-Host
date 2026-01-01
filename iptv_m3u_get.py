@@ -33,7 +33,6 @@ M3U_PATH = os.path.join(GITHUB_REPO_PATH, GITHUB_M3U_FILE_NAME)
 print(f"【路径验证】仓库目录：{GITHUB_REPO_PATH}")
 print(f"【路径验证】M3U文件路径：{M3U_PATH}")
 print(f"【路径验证】是否为Git仓库：{os.path.exists(os.path.join(GITHUB_REPO_PATH, '.git'))}")
-print(f"【配置验证】目标获取第 {TARGET_IP_RANK} 新的“有效组播IP”")
 
 
 def upload_m3u_to_github():
@@ -324,3 +323,4 @@ if __name__ == "__main__":
     print(f"\n【当前配置】关键词={SEARCH_KEYWORD}，第{TARGET_IP_RANK}新IP\n")
 
     extract_m3u()
+
