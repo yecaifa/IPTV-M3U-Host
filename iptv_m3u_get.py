@@ -311,7 +311,7 @@ def extract_m3u():
 if __name__ == "__main__":
     try:
         kw = input(f"请输入搜索关键词（回车=默认：{DEFAULT_SEARCH_KEYWORD}）：").strip()
-        rk = input(f"请输入第几个新的IP（回车=默认：{DEFAULT_TARGET_IP_RANK}）：").strip()
+        rk = input(f"请输入数字，第几个新的IP（回车=默认：{DEFAULT_TARGET_IP_RANK}）：").strip()
 
         SEARCH_KEYWORD = kw if kw else DEFAULT_SEARCH_KEYWORD
         TARGET_IP_RANK = int(rk) if rk.isdigit() else DEFAULT_TARGET_IP_RANK
