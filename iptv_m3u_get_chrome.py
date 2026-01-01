@@ -121,36 +121,39 @@ def upload_m3u_to_github(target_ip_rank: int) -> str:
 
 def make_driver(download_dir: str) -> webdriver.Chrome:
     """
-    创建 Chrome WebDriver（本地更稳：指定 chrome.exe + webdriver-manager）
-    Headless 兼容增强：更像真实浏览器 + 反 webdriver 标记
+    创建 Chrome WebDriver（跨平台）
+    - Windows：显式指定 chrome.exe（避免 chrome 不在 PATH）
+    - Linux/CI：不指定 binary_location，使用 PATH 中的 chrome（workflow 已安装）
     """
     import os
+    import platform
     from selenium.webdriver.chrome.service import Service
     from webdriver_manager.chrome import ChromeDriverManager
 
     headless_env = (os.getenv("HEADLESS") or "1").strip()
     headless = headless_env not in ("0", "false", "False")
 
-    # Windows 常见 Chrome 安装位置（你已验证 ProgramFiles 为 True）
-    chrome_path = os.path.join(
-        os.environ.get("PROGRAMFILES", r"C:\Program Files"),
-        r"Google\Chrome\Application\chrome.exe"
-    )
-    if not os.path.exists(chrome_path):
-        # 兜底再探测其它路径
-        candidates = [
-            os.path.join(os.environ.get("PROGRAMFILES(X86)", r"C:\Program Files (x86)"),
-                         r"Google\Chrome\Application\chrome.exe"),
-            os.path.join(os.environ.get("LOCALAPPDATA", ""),
-                         r"Google\Chrome\Application\chrome.exe"),
-        ]
-        chrome_path = next((p for p in candidates if p and os.path.exists(p)), None)
-
-    if not chrome_path or not os.path.exists(chrome_path):
-        raise Exception("未找到 chrome.exe：请确认已安装 Chrome")
-
     options = ChromeOptions()
-    options.binary_location = chrome_path
+
+    # 仅 Windows 显式指定 Chrome 路径
+    if platform.system().lower() == "windows":
+        chrome_path = os.path.join(
+            os.environ.get("PROGRAMFILES", r"C:\Program Files"),
+            r"Google\Chrome\Application\chrome.exe"
+        )
+        if not os.path.exists(chrome_path):
+            candidates = [
+                os.path.join(os.environ.get("PROGRAMFILES(X86)", r"C:\Program Files (x86)"),
+                             r"Google\Chrome\Application\chrome.exe"),
+                os.path.join(os.environ.get("LOCALAPPDATA", ""),
+                             r"Google\Chrome\Application\chrome.exe"),
+            ]
+            chrome_path = next((p for p in candidates if p and os.path.exists(p)), None)
+
+        if not chrome_path or not os.path.exists(chrome_path):
+            raise Exception("未找到 chrome.exe：请确认已安装 Chrome")
+
+        options.binary_location = chrome_path
 
     if headless:
         options.add_argument("--headless=new")
@@ -161,7 +164,7 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920,1080")
 
-    # Headless / 自动化兼容增强（关键）
+    # Headless / 自动化兼容增强
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
@@ -180,10 +183,11 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     }
     options.add_experimental_option("prefs", prefs)
 
+    # 用 webdriver-manager 获取 chromedriver（Actions 网络一般可用）
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
-    # 去掉 webdriver 标记（关键）
+    # 去掉 webdriver 标记
     try:
         driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
             "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
@@ -240,12 +244,12 @@ def wait_for_dynamic_content(driver: webdriver.Chrome, timeout_sec: int = 25):
 
 
 def extract_m3u(search_keyword: str, target_ip_rank: int):
-    # 运行前清理旧文件（避免误判）
-    if os.path.exists(M3U_PATH):
-        try:
-            os.remove(M3U_PATH)
-        except Exception:
-            pass
+    # # 运行前清理旧文件（避免误判）
+    # if os.path.exists(M3U_PATH):
+    #     try:
+    #         os.remove(M3U_PATH)
+    #     except Exception:
+    #         pass
 
     print(f"【路径验证】仓库目录：{GITHUB_REPO_PATH}")
     print(f"【路径验证】M3U文件路径：{M3U_PATH}")
