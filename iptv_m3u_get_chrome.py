@@ -200,50 +200,52 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     return driver
 
 
-def wait_for_m3u_file(download_dir: str, timeout_sec: int = 120) -> Optional[str]:
+def wait_for_new_m3u_file(download_dir: str, before_snapshot: dict, click_time: float, timeout_sec: int = 180) -> Optional[str]:
     """
-    等待下载完成：返回“最新修改”的 .m3u 文件路径
-    - 优先返回非 iptv_latest.m3u 的最新文件（通常是 channels_xxx.m3u）
-    - 如果只有 iptv_latest.m3u，也返回它
+    等待“新下载”的 m3u：
+    - 优先：出现一个 before_snapshot 中不存在的新文件
+    - 次优：已有 m3u 文件的 mtime 变得比 click_time 更新
     """
     deadline = time.time() + timeout_sec
 
-    def newest_m3u(exclude_latest: bool):
-        m3us = []
-        try:
-            files = os.listdir(download_dir)
-        except Exception:
-            files = []
-        for f in files:
-            if not f.lower().endswith(".m3u"):
-                continue
-            if exclude_latest and f == GITHUB_M3U_FILE_NAME:
-                continue
-            full = os.path.join(download_dir, f)
-            try:
-                size = os.path.getsize(full)
-                mtime = os.path.getmtime(full)
-                if size > 0:
-                    m3us.append((mtime, full))
-            except Exception:
-                continue
-        if not m3us:
-            return None
-        m3us.sort(reverse=True)
-        return m3us[0][1]
+    def list_m3u():
+        files = []
+        for f in os.listdir(download_dir):
+            if f.lower().endswith(".m3u"):
+                full = os.path.join(download_dir, f)
+                try:
+                    files.append((f, os.path.getmtime(full), os.path.getsize(full), full))
+                except Exception:
+                    continue
+        return files
 
     while time.time() < deadline:
-        newest = newest_m3u(exclude_latest=True)
-        if newest:
-            return newest
+        m3us = list_m3u()
 
-        if os.path.exists(M3U_PATH) and os.path.getsize(M3U_PATH) > 0:
-            return M3U_PATH
+        # 1) 新文件（之前不存在）
+        new_files = [x for x in m3us if x[0] not in before_snapshot and x[2] > 0]
+        if new_files:
+            new_files.sort(key=lambda x: x[1], reverse=True)
+            return new_files[0][3]
+
+        # 2) 老文件被更新（mtime 变新）
+        updated_files = []
+        for name, mtime, size, full in m3us:
+            if size <= 0:
+                continue
+            old_mtime = before_snapshot.get(name)
+            if old_mtime is not None and mtime > old_mtime + 0.5:
+                updated_files.append((name, mtime, full))
+            elif mtime > click_time + 0.5:
+                updated_files.append((name, mtime, full))
+
+        if updated_files:
+            updated_files.sort(key=lambda x: x[1], reverse=True)
+            return updated_files[0][2]
 
         time.sleep(1)
 
-    return newest_m3u(exclude_latest=False)
-
+    return None
 
 def wait_for_dynamic_content(driver: webdriver.Chrome, timeout_sec: int = 25):
     """等待动态内容出现（headless 下非常关键）"""
@@ -436,19 +438,33 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
         )
         m3u_download_btn.click()
 
-        # 7) 等待下载完成，并覆盖为 iptv_latest.m3u
+        # 7) 等待“新下载”的 m3u 出现（关键：不要误用旧的 iptv_latest.m3u）
         print("【步骤7】等待下载完成")
-        downloaded = wait_for_m3u_file(GITHUB_REPO_PATH, timeout_sec=120)
 
-        if not downloaded or not os.path.exists(downloaded):
-            raise Exception("M3U文件下载失败（未检测到 .m3u 文件）")
+        # 点击前先快照目录中现有的 m3u 文件（避免把旧文件当新文件）
+        before_snapshot = {}
+        for f in os.listdir(GITHUB_REPO_PATH):
+            if f.lower().endswith(".m3u"):
+                full = os.path.join(GITHUB_REPO_PATH, f)
+                try:
+                    before_snapshot[f] = os.path.getmtime(full)
+                except Exception:
+                    pass
 
-        # 统一覆盖到 iptv_latest.m3u（不要先删）
+        click_time = time.time()
+        time.sleep(1)  # 给下载触发一点时间
+
+        downloaded = wait_for_new_m3u_file(GITHUB_REPO_PATH, before_snapshot, click_time, timeout_sec=180)
+        if not downloaded or not os.path.exists(downloaded) or os.path.getsize(downloaded) == 0:
+            raise Exception("M3U文件下载失败（未检测到新的 .m3u 文件）")
+
+        # 用“新下载”的文件覆盖到 iptv_latest.m3u
         if os.path.abspath(downloaded) != os.path.abspath(M3U_PATH):
             os.replace(downloaded, M3U_PATH)
 
         if not os.path.exists(M3U_PATH) or os.path.getsize(M3U_PATH) == 0:
             raise Exception("M3U文件下载失败（文件为空或不存在）")
+
 
         # 写入来源标记（确保换rank/换IP有diff）
         stamp_m3u(target_ip, target_ip_rank)
