@@ -18,7 +18,7 @@ on:
       keyword_template:
         description: "批量模式关键词模板（mode=batch 时生效），用 {province} 占位。例如：{province}、{province}省"
         required: false
-        default: "{province}"
+        default: "{province}省"
       headless:
         description: "是否无头运行：1=无头，0=显示窗口"
         required: false
@@ -61,7 +61,7 @@ jobs:
           MODE: ${{ github.event.inputs.mode || 'batch' }}
           SEARCH_KEYWORD: ${{ github.event.inputs.search_keyword || '湖北省武汉' }}
           TARGET_IP_RANK: ${{ github.event.inputs.target_ip_rank || '1' }}
-          KEYWORD_TEMPLATE: ${{ github.event.inputs.keyword_template || '{province}' }}
+          KEYWORD_TEMPLATE: ${{ github.event.inputs.keyword_template || '{province}省' }}
           HEADLESS: ${{ github.event.inputs.headless || '1' }}
         run: |
           if [ "${MODE}" = "batch" ]; then
