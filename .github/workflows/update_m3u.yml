@@ -30,16 +30,31 @@ jobs:
 
       - name: Run script
         env:
-          # 托管时用环境变量，不交互输入
           SEARCH_KEYWORD: "湖北省武汉"
           TARGET_IP_RANK: "1"
           HEADLESS: "1"
         run: |
           python iptv_m3u_get_chrome.py
 
-      - name: Commit & push m3u (if changed)
+      - name: Debug (list files)
+        if: always()
         run: |
+          ls -lah
+          ls -lah iptv_latest.m3u || true
+
+      - name: Commit & push m3u (if valid and changed)
+        run: |
+          if [ ! -f iptv_latest.m3u ]; then
+            echo "iptv_latest.m3u not found, skip commit."
+            exit 0
+          fi
+          if [ ! -s iptv_latest.m3u ]; then
+            echo "iptv_latest.m3u is empty, skip commit."
+            exit 0
+          fi
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add iptv_latest.m3u
           git diff --cached --quiet || (git commit -m "Update M3U" && git push)
