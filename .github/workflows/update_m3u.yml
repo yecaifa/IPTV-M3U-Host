@@ -36,11 +36,27 @@ jobs:
         run: |
           python iptv_m3u_get_chrome.py
 
-      - name: Debug (list files)
+      - name: Debug (list m3u)
         if: always()
         run: |
+          echo "== pwd =="
+          pwd
+
+          echo "== list all files =="
           ls -lah
-          ls -lah iptv_latest.m3u || true
+
+          echo "== list m3u files =="
+          ls -lah *.m3u || true
+
+          echo "== head of iptv_latest.m3u =="
+          head -n 5 iptv_latest.m3u || true
+
+          echo "== head of newest m3u =="
+          newest=$(ls -t *.m3u 2>/dev/null | head -n 1 || true)
+          echo "newest=$newest"
+          if [ -n "$newest" ]; then
+            head -n 5 "$newest" || true
+          fi
 
       - name: Commit & push m3u (if valid and changed)
         run: |
