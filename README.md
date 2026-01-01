@@ -51,17 +51,21 @@ $env:SEARCH_KEYWORD="湖北省武汉"
 $env:TARGET_IP_RANK="1"
 $env:HEADLESS="1"
 python iptv_m3u_get_chrome.py
-📁 项目结构说明
-iptv_m3u_get_chrome.py：主脚本
+```
+---
 
-iptv_latest.m3u：生成的订阅文件
+## 📁 项目结构说明
 
-.github/workflows/update_m3u.yml：GitHub Actions 工作流
+- `iptv_m3u_get_chrome.py`：主脚本
+- `iptv_latest.m3u`：生成的订阅文件
+- `.github/workflows/update_m3u.yml`：GitHub Actions 工作流
+- `archive/`：历史脚本，仅作留存
 
-archive/：历史脚本，仅作留存
+---
 
-⚠️ 免责声明
-本项目仅用于个人学习与技术研究，请勿用于商业用途。
+## ⚠️ 免责声明
+
+本项目仅用于个人学习与技术研究，请勿用于商业用途。  
 使用过程中产生的任何后果由使用者自行承担。
 
 ---
