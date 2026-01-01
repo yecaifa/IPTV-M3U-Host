@@ -31,6 +31,9 @@ ELEMENT_TIMEOUT = 60
 PAGE_LOAD_TIMEOUT = 120
 FIXED_DELAY = 3
 
+# 是否在 m3u 顶部写入本次来源标记（保证换rank/换IP后一定产生diff）
+ENABLE_STAMP = True
+
 # GitHub配置
 GITHUB_REPO_PATH = os.path.dirname(os.path.abspath(__file__))
 GITHUB_M3U_FILE_NAME = "iptv_latest.m3u"
@@ -81,8 +84,8 @@ def upload_m3u_to_github(target_ip_rank: int) -> str:
     try:
         if not os.path.exists(GITHUB_REPO_PATH) or not os.path.exists(os.path.join(GITHUB_REPO_PATH, ".git")):
             raise Exception("当前目录不是Git仓库（缺少.git）")
-        if not os.path.exists(M3U_PATH):
-            raise Exception("M3U文件不存在，无法提交")
+        if not os.path.exists(M3U_PATH) or os.path.getsize(M3U_PATH) == 0:
+            raise Exception("M3U文件不存在或为空，无法提交")
 
         repo = Repo(GITHUB_REPO_PATH)
         git = repo.git
@@ -90,7 +93,6 @@ def upload_m3u_to_github(target_ip_rank: int) -> str:
         if "origin" not in [r.name for r in repo.remotes]:
             raise Exception("未配置远程 origin，请先设置远程仓库")
 
-        # 只 add 目标 m3u 文件
         git.add(GITHUB_M3U_FILE_NAME)
 
         # HEAD 不存在（首次提交）兜底
@@ -125,7 +127,6 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     - Windows：显式指定 chrome.exe（避免 chrome 不在 PATH）
     - Linux/CI：不指定 binary_location，使用 PATH 中的 chrome（workflow 已安装）
     """
-    import os
     import platform
     from selenium.webdriver.chrome.service import Service
     from webdriver_manager.chrome import ChromeDriverManager
@@ -183,7 +184,6 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     }
     options.add_experimental_option("prefs", prefs)
 
-    # 用 webdriver-manager 获取 chromedriver（Actions 网络一般可用）
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
@@ -200,39 +200,53 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     return driver
 
 
-def wait_for_m3u_file(download_dir: str, timeout_sec: int = 90) -> Optional[str]:
-    """等待下载完成并返回下载到的 .m3u 文件路径（可能不是目标文件名）"""
+def wait_for_m3u_file(download_dir: str, timeout_sec: int = 120) -> Optional[str]:
+    """
+    等待下载完成：返回“最新修改”的 .m3u 文件路径
+    - 优先返回非 iptv_latest.m3u 的最新文件（通常是 channels_xxx.m3u）
+    - 如果只有 iptv_latest.m3u，也返回它
+    """
     deadline = time.time() + timeout_sec
-    last_seen = None
+
+    def newest_m3u(exclude_latest: bool):
+        m3us = []
+        try:
+            files = os.listdir(download_dir)
+        except Exception:
+            files = []
+        for f in files:
+            if not f.lower().endswith(".m3u"):
+                continue
+            if exclude_latest and f == GITHUB_M3U_FILE_NAME:
+                continue
+            full = os.path.join(download_dir, f)
+            try:
+                size = os.path.getsize(full)
+                mtime = os.path.getmtime(full)
+                if size > 0:
+                    m3us.append((mtime, full))
+            except Exception:
+                continue
+        if not m3us:
+            return None
+        m3us.sort(reverse=True)
+        return m3us[0][1]
 
     while time.time() < deadline:
+        newest = newest_m3u(exclude_latest=True)
+        if newest:
+            return newest
+
         if os.path.exists(M3U_PATH) and os.path.getsize(M3U_PATH) > 0:
             return M3U_PATH
 
-        m3us = []
-        for f in os.listdir(download_dir):
-            if f.lower().endswith(".m3u"):
-                full = os.path.join(download_dir, f)
-                try:
-                    m3us.append((os.path.getmtime(full), full))
-                except Exception:
-                    continue
-
-        if m3us:
-            m3us.sort(reverse=True)
-            last_seen = m3us[0][1]
-
         time.sleep(1)
 
-    return last_seen
+    return newest_m3u(exclude_latest=False)
 
 
 def wait_for_dynamic_content(driver: webdriver.Chrome, timeout_sec: int = 25):
-    """
-    等待动态内容出现（headless 下非常关键）
-    - 优先等 'Multicast IPTV' 或 '组播'
-    - 如果等不到，也不直接失败，后续仍尝试解析
-    """
+    """等待动态内容出现（headless 下非常关键）"""
     try:
         WebDriverWait(driver, timeout_sec).until(
             EC.presence_of_element_located(
@@ -243,14 +257,31 @@ def wait_for_dynamic_content(driver: webdriver.Chrome, timeout_sec: int = 25):
         pass
 
 
-def extract_m3u(search_keyword: str, target_ip_rank: int):
-    # # 运行前清理旧文件（避免误判）
-    # if os.path.exists(M3U_PATH):
-    #     try:
-    #         os.remove(M3U_PATH)
-    #     except Exception:
-    #         pass
+def stamp_m3u(target_ip: str, target_ip_rank: int):
+    """在 m3u 头部写入本次来源标记（不影响播放器）"""
+    if not ENABLE_STAMP:
+        return
+    try:
+        stamp = f"# source_ip={target_ip} rank={target_ip_rank} updated_at={time.strftime('%Y-%m-%d %H:%M:%S')}\n"
+        with open(M3U_PATH, "r", encoding="utf-8", errors="ignore") as f:
+            content = f.read()
 
+        lines = content.splitlines(True)
+        # 移除旧 stamp
+        lines = [ln for ln in lines if not ln.startswith("# source_ip=")]
+
+        if lines and lines[0].startswith("#EXTM3U"):
+            lines.insert(1, stamp)
+        else:
+            lines.insert(0, stamp)
+
+        with open(M3U_PATH, "w", encoding="utf-8") as f:
+            f.write("".join(lines))
+    except Exception:
+        pass
+
+
+def extract_m3u(search_keyword: str, target_ip_rank: int):
     print(f"【路径验证】仓库目录：{GITHUB_REPO_PATH}")
     print(f"【路径验证】M3U文件路径：{M3U_PATH}")
     print(f"【路径验证】是否为Git仓库：{os.path.exists(os.path.join(GITHUB_REPO_PATH, '.git'))}")
@@ -288,10 +319,6 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
         alive_days_pattern = re.compile(r'存活\s*(\d+)\s*天')
 
         def parse_status(text: str):
-            """
-            返回 (is_valid, sort_key_tuple, status_str)
-            sort_key: (0,0)=新上线 最优；(1,days)=存活days；无效=(99,999999)
-            """
             t = text.replace("\u3000", " ").strip()
             if "暂时失效" in t:
                 return (False, (99, 999999), "暂时失效")
@@ -303,7 +330,6 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
                 return (True, (1, days), f"存活{days}天")
             return (False, (99, 999999), t)
 
-        # 定位 Multicast IPTV 区域，失败则回退到全页“含组播”的行
         multicast_root = None
         try:
             multicast_title = driver.find_element(
@@ -341,7 +367,6 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
                 if ip in seen_ip:
                     continue
 
-                # 找可点击链接（保持后续 click 逻辑）
                 link_elem = None
                 try:
                     link_elem = row.find_element(By.XPATH, f".//a[normalize-space(text())='{ip}']")
@@ -373,10 +398,8 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
             print("❌ 未找到任何有效的组播IP，流程终止")
             return
 
-        # 排序：新上线优先，其次存活天数小的更“新”
         multicast_items.sort(key=lambda x: x["sort_key"])
 
-        # 打印列表（带排名）
         print("  📋 有效组播IP列表（1=最新）：")
         for idx, item in enumerate(multicast_items, start=1):
             mark = "【选中】" if idx == target_ip_rank else ""
@@ -403,7 +426,6 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
         )
         channel_btn.click()
 
-        # 切换到新打开的页面
         driver.switch_to.window(driver.window_handles[-1])
         time.sleep(FIXED_DELAY * 2)
 
@@ -414,24 +436,22 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
         )
         m3u_download_btn.click()
 
-        # 7) 等待下载并确保文件名为 iptv_latest.m3u
+        # 7) 等待下载完成，并覆盖为 iptv_latest.m3u
         print("【步骤7】等待下载完成")
-        downloaded = wait_for_m3u_file(GITHUB_REPO_PATH, timeout_sec=90)
+        downloaded = wait_for_m3u_file(GITHUB_REPO_PATH, timeout_sec=120)
 
         if not downloaded or not os.path.exists(downloaded):
             raise Exception("M3U文件下载失败（未检测到 .m3u 文件）")
 
-        # 如果下载文件名不是目标名，重命名
+        # 统一覆盖到 iptv_latest.m3u（不要先删）
         if os.path.abspath(downloaded) != os.path.abspath(M3U_PATH):
-            try:
-                if os.path.exists(M3U_PATH):
-                    os.remove(M3U_PATH)
-            except Exception:
-                pass
-            os.rename(downloaded, M3U_PATH)
+            os.replace(downloaded, M3U_PATH)
 
         if not os.path.exists(M3U_PATH) or os.path.getsize(M3U_PATH) == 0:
             raise Exception("M3U文件下载失败（文件为空或不存在）")
+
+        # 写入来源标记（确保换rank/换IP有diff）
+        stamp_m3u(target_ip, target_ip_rank)
 
         print(f"✅ M3U源文件已下载：{M3U_PATH}")
 
