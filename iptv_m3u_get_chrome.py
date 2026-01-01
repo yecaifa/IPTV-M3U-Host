@@ -3,18 +3,17 @@
 iptv_m3u_get_chrome.py
 - Chrome + Selenium（兼容本地/CI）
 - 支持运行时输入 / 环境变量配置：SEARCH_KEYWORD, TARGET_IP_RANK
-- Headless 兼容增强（更像真实浏览器 + 显式等待动态内容）
+- 支持批量省份模式：BATCH=1 -> 输出到 m3u/<省>.m3u
 - 保持“模拟点击”流程：进入IP详情页 -> 查看频道列表 -> M3U下载
-- Git 仅提交 iptv_latest.m3u
+- 在 m3u 顶部写入 source_ip 标记（可关）
 """
 
 import os
 import re
 import time
 import urllib.parse
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Dict, List
 
-from git import Repo
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.support.ui import WebDriverWait
@@ -31,16 +30,29 @@ ELEMENT_TIMEOUT = 60
 PAGE_LOAD_TIMEOUT = 120
 FIXED_DELAY = 3
 
-# 是否在 m3u 顶部写入本次来源标记（保证换rank/换IP后一定产生diff）
+# 是否在 m3u 顶部写入本次来源标记（保证换IP/换rank有diff，播放器一般不受影响）
 ENABLE_STAMP = True
 
-# GitHub配置
+# 仓库路径 & 输出目录
 GITHUB_REPO_PATH = os.path.dirname(os.path.abspath(__file__))
-GITHUB_M3U_FILE_NAME = "iptv_latest.m3u"
-GITHUB_BRANCH = "main"
-YOUR_GITHUB_USERNAME = "yecaifa"
-
+GITHUB_M3U_FILE_NAME = "iptv_latest.m3u"  # 单次模式输出
 M3U_PATH = os.path.join(GITHUB_REPO_PATH, GITHUB_M3U_FILE_NAME)
+
+OUTPUT_DIR = os.path.join(GITHUB_REPO_PATH, "m3u")  # 批量模式输出目录
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+# ============================================================================
+
+
+# ===================== 省份列表（可按需增删/改关键词格式）=====================
+PROVINCES = [
+    "北京", "天津", "上海", "重庆",
+    "河北", "山西", "辽宁", "吉林", "黑龙江",
+    "江苏", "浙江", "安徽", "福建", "江西", "山东",
+    "河南", "湖北", "湖南", "广东", "海南",
+    "四川", "贵州", "云南", "陕西", "甘肃", "青海",
+    "内蒙古", "广西", "西藏", "宁夏", "新疆",
+    "香港", "澳门",
+]
 # ============================================================================
 
 
@@ -68,7 +80,6 @@ def get_runtime_config() -> Tuple[str, int]:
     if is_tty and (not kw_env and not rk_env):
         kw_in = input(f"请输入搜索关键词（回车=默认：{DEFAULT_SEARCH_KEYWORD}）：").strip()
         rk_in = input(f"请输入第几个新的IP（回车=默认：{DEFAULT_TARGET_IP_RANK}）：").strip()
-
         if kw_in:
             keyword = kw_in
         if rk_in.isdigit():
@@ -77,48 +88,6 @@ def get_runtime_config() -> Tuple[str, int]:
     if rank < 1:
         rank = 1
     return keyword, rank
-
-
-def upload_m3u_to_github(target_ip_rank: int) -> str:
-    """仅上传/更新 M3U 文件到GitHub（只提交 iptv_latest.m3u）"""
-    try:
-        if not os.path.exists(GITHUB_REPO_PATH) or not os.path.exists(os.path.join(GITHUB_REPO_PATH, ".git")):
-            raise Exception("当前目录不是Git仓库（缺少.git）")
-        if not os.path.exists(M3U_PATH) or os.path.getsize(M3U_PATH) == 0:
-            raise Exception("M3U文件不存在或为空，无法提交")
-
-        repo = Repo(GITHUB_REPO_PATH)
-        git = repo.git
-
-        if "origin" not in [r.name for r in repo.remotes]:
-            raise Exception("未配置远程 origin，请先设置远程仓库")
-
-        git.add(GITHUB_M3U_FILE_NAME)
-
-        # HEAD 不存在（首次提交）兜底
-        if not repo.head.is_valid():
-            commit_msg = f"Update M3U - {time.strftime('%Y-%m-%d %H:%M:%S')}"
-            git.commit("-m", commit_msg)
-            git.push("origin", GITHUB_BRANCH)
-            print(f"✅ GitHub上传成功：{commit_msg}")
-            return f"https://raw.githubusercontent.com/{YOUR_GITHUB_USERNAME}/IPTV-M3U-Host/{GITHUB_BRANCH}/{GITHUB_M3U_FILE_NAME}"
-
-        # staged diff 判断该文件是否变化
-        changed = repo.index.diff("HEAD")
-        changed_files = {d.a_path for d in changed}
-
-        if GITHUB_M3U_FILE_NAME in changed_files:
-            commit_msg = f"Update M3U (有效组播第{target_ip_rank}新IP) - {time.strftime('%Y-%m-%d %H:%M:%S')}"
-            git.commit("-m", commit_msg)
-            git.push("origin", GITHUB_BRANCH)
-            print(f"✅ GitHub上传成功：{commit_msg}")
-        else:
-            print("ℹ️ M3U 文件无变化，无需提交")
-
-        return f"https://raw.githubusercontent.com/{YOUR_GITHUB_USERNAME}/IPTV-M3U-Host/{GITHUB_BRANCH}/{GITHUB_M3U_FILE_NAME}"
-
-    except Exception as e:
-        raise Exception(f"GitHub上传失败：{str(e)}")
 
 
 def make_driver(download_dir: str) -> webdriver.Chrome:
@@ -165,7 +134,7 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920,1080")
 
-    # Headless / 自动化兼容增强
+    # Headless / 自动化兼容增强（尽量像真实浏览器）
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
@@ -175,7 +144,7 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
         "Chrome/120.0.0.0 Safari/537.36"
     )
 
-    # 下载目录设置
+    # 下载目录设置（Linux/Windows 都生效）
     prefs = {
         "download.default_directory": download_dir,
         "download.prompt_for_download": False,
@@ -184,6 +153,7 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     }
     options.add_experimental_option("prefs", prefs)
 
+    # webdriver-manager 拉取 chromedriver（本地若网络受限可能失败；Actions 通常没问题）
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
@@ -200,24 +170,58 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     return driver
 
 
-def wait_for_new_m3u_file(download_dir: str, before_snapshot: dict, click_time: float, timeout_sec: int = 180) -> Optional[str]:
-    """
-    等待“新下载”的 m3u：
-    - 优先：出现一个 before_snapshot 中不存在的新文件
-    - 次优：已有 m3u 文件的 mtime 变得比 click_time 更新
-    """
-    deadline = time.time() + timeout_sec
+def wait_for_dynamic_content(driver: webdriver.Chrome, timeout_sec: int = 25):
+    """等待动态内容出现（headless 下重要）"""
+    try:
+        WebDriverWait(driver, timeout_sec).until(
+            EC.presence_of_element_located(
+                (By.XPATH, "//*[contains(., 'Multicast IPTV') or contains(., '组播')]")
+            )
+        )
+    except Exception:
+        pass
 
-    def list_m3u():
-        files = []
+
+def snapshot_m3u_mtimes(download_dir: str) -> Dict[str, float]:
+    """记录当前目录所有 .m3u 的 mtime，用于识别“新下载”的文件"""
+    snap: Dict[str, float] = {}
+    try:
         for f in os.listdir(download_dir):
             if f.lower().endswith(".m3u"):
                 full = os.path.join(download_dir, f)
                 try:
-                    files.append((f, os.path.getmtime(full), os.path.getsize(full), full))
+                    snap[f] = os.path.getmtime(full)
                 except Exception:
-                    continue
-        return files
+                    pass
+    except Exception:
+        pass
+    return snap
+
+
+def wait_for_new_m3u_file(download_dir: str, before_snapshot: Dict[str, float], click_time: float,
+                          timeout_sec: int = 180) -> Optional[str]:
+    """
+    等待“新下载”的 m3u：
+    - 优先：出现一个 before_snapshot 中不存在的新文件
+    - 次优：已有 m3u 文件的 mtime 变得比 click_time 更新（或比旧值更大）
+    """
+    deadline = time.time() + timeout_sec
+
+    def list_m3u() -> List[Tuple[str, float, int, str]]:
+        out = []
+        try:
+            files = os.listdir(download_dir)
+        except Exception:
+            files = []
+        for f in files:
+            if not f.lower().endswith(".m3u"):
+                continue
+            full = os.path.join(download_dir, f)
+            try:
+                out.append((f, os.path.getmtime(full), os.path.getsize(full), full))
+            except Exception:
+                continue
+        return out
 
     while time.time() < deadline:
         m3us = list_m3u()
@@ -235,37 +239,26 @@ def wait_for_new_m3u_file(download_dir: str, before_snapshot: dict, click_time: 
                 continue
             old_mtime = before_snapshot.get(name)
             if old_mtime is not None and mtime > old_mtime + 0.5:
-                updated_files.append((name, mtime, full))
+                updated_files.append((mtime, full))
             elif mtime > click_time + 0.5:
-                updated_files.append((name, mtime, full))
+                updated_files.append((mtime, full))
 
         if updated_files:
-            updated_files.sort(key=lambda x: x[1], reverse=True)
-            return updated_files[0][2]
+            updated_files.sort(reverse=True)
+            return updated_files[0][1]
 
         time.sleep(1)
 
     return None
 
-def wait_for_dynamic_content(driver: webdriver.Chrome, timeout_sec: int = 25):
-    """等待动态内容出现（headless 下非常关键）"""
-    try:
-        WebDriverWait(driver, timeout_sec).until(
-            EC.presence_of_element_located(
-                (By.XPATH, "//*[contains(., 'Multicast IPTV') or contains(., '组播')]")
-            )
-        )
-    except Exception:
-        pass
 
-
-def stamp_m3u(target_ip: str, target_ip_rank: int):
-    """在 m3u 头部写入本次来源标记（不影响播放器）"""
+def stamp_m3u(path: str, target_ip: str, target_ip_rank: int):
+    """在 m3u 头部写入本次来源标记（纯注释，通常不影响播放器）"""
     if not ENABLE_STAMP:
         return
     try:
         stamp = f"# source_ip={target_ip} rank={target_ip_rank} updated_at={time.strftime('%Y-%m-%d %H:%M:%S')}\n"
-        with open(M3U_PATH, "r", encoding="utf-8", errors="ignore") as f:
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
             content = f.read()
 
         lines = content.splitlines(True)
@@ -277,23 +270,24 @@ def stamp_m3u(target_ip: str, target_ip_rank: int):
         else:
             lines.insert(0, stamp)
 
-        with open(M3U_PATH, "w", encoding="utf-8") as f:
+        with open(path, "w", encoding="utf-8") as f:
             f.write("".join(lines))
     except Exception:
         pass
 
 
-def extract_m3u(search_keyword: str, target_ip_rank: int):
-    print(f"【路径验证】仓库目录：{GITHUB_REPO_PATH}")
-    print(f"【路径验证】M3U文件路径：{M3U_PATH}")
-    print(f"【路径验证】是否为Git仓库：{os.path.exists(os.path.join(GITHUB_REPO_PATH, '.git'))}")
-    print(f"【当前配置】关键词={search_keyword}，第{target_ip_rank}新IP")
-
-    driver = None
-    github_link = None
-
+def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: int, output_path: str) -> bool:
+    """
+    单次抓取：
+    - 搜索 keyword
+    - 在 Multicast IPTV 中找“有效组播IP”
+    - 选择第 rank 个
+    - 模拟点击下载 m3u
+    - 输出到 output_path
+    返回：成功 True / 失败 False（失败不抛异常，方便批量继续）
+    """
     try:
-        driver = make_driver(download_dir=GITHUB_REPO_PATH)
+        print(f"\n========== 开始：{search_keyword} -> {os.path.relpath(output_path, GITHUB_REPO_PATH)} ==========")
 
         # 1) 打开首页
         print(f"【步骤1】打开首页：{HOME_PAGE_URL}")
@@ -356,9 +350,7 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
         for row in candidate_rows:
             try:
                 row_text = row.text.strip()
-                if not row_text:
-                    continue
-                if "组播" not in row_text:
+                if not row_text or "组播" not in row_text:
                     continue
 
                 m_ip = ip_pattern_anywhere.search(row_text)
@@ -369,6 +361,7 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
                 if ip in seen_ip:
                     continue
 
+                # 找可点击链接（保持后续 click 逻辑）
                 link_elem = None
                 try:
                     link_elem = row.find_element(By.XPATH, f".//a[normalize-space(text())='{ip}']")
@@ -397,23 +390,25 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
 
         print(f"  ✅ 提取到 {len(multicast_items)} 个有效组播IP")
         if not multicast_items:
-            print("❌ 未找到任何有效的组播IP，流程终止")
-            return
+            print("  ❌ 未找到任何有效的组播IP，跳过")
+            return False
 
         multicast_items.sort(key=lambda x: x["sort_key"])
 
-        print("  📋 有效组播IP列表（1=最新）：")
-        for idx, item in enumerate(multicast_items, start=1):
-            mark = "【选中】" if idx == target_ip_rank else ""
+        # 打印前10个（避免日志过长）
+        print("  📋 有效组播IP列表（前10个，1=最新）：")
+        for idx, item in enumerate(multicast_items[:10], start=1):
+            mark = "【目标】" if idx == target_ip_rank else ""
             print(f"    第{idx}名：{item['ip']}  状态：{item['status']} {mark}")
 
         if target_ip_rank < 1 or target_ip_rank > len(multicast_items):
-            raise Exception(f"目标IP排名超出范围（有效组播IP数量：{len(multicast_items)}，目标排名：{target_ip_rank}）")
+            print(f"  ❌ 目标IP排名超出范围：有效={len(multicast_items)}，目标={target_ip_rank}，跳过")
+            return False
 
         target = multicast_items[target_ip_rank - 1]
         target_ip = target["ip"]
         target_link = target["link"]
-        print(f"  ✅ 选中第 {target_ip_rank} 新的有效组播IP：{target_ip}（{target['status']}）")
+        print(f"  ✅ 选中：{target_ip}（{target['status']}）")
 
         # 4) 进入 IP 详情页（模拟点击）
         print(f"【步骤4】进入IP详情页：{target_ip}")
@@ -428,70 +423,111 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
         )
         channel_btn.click()
 
+        # 切换到新窗口
         driver.switch_to.window(driver.window_handles[-1])
         time.sleep(FIXED_DELAY * 2)
 
         # 6) 点击“M3U下载”
         print("【步骤6】点击M3U下载")
+
+        # 点击前快照，确保抓到“新下载文件”
+        before_snapshot = snapshot_m3u_mtimes(GITHUB_REPO_PATH)
+
         m3u_download_btn = WebDriverWait(driver, ELEMENT_TIMEOUT).until(
             EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'M3U下载')]"))
         )
+        click_time = time.time()
         m3u_download_btn.click()
 
-        # 7) 等待“新下载”的 m3u 出现（关键：不要误用旧的 iptv_latest.m3u）
+        # 7) 等待新 m3u 出现
         print("【步骤7】等待下载完成")
-
-        # 点击前先快照目录中现有的 m3u 文件（避免把旧文件当新文件）
-        before_snapshot = {}
-        for f in os.listdir(GITHUB_REPO_PATH):
-            if f.lower().endswith(".m3u"):
-                full = os.path.join(GITHUB_REPO_PATH, f)
-                try:
-                    before_snapshot[f] = os.path.getmtime(full)
-                except Exception:
-                    pass
-
-        click_time = time.time()
-        time.sleep(1)  # 给下载触发一点时间
-
         downloaded = wait_for_new_m3u_file(GITHUB_REPO_PATH, before_snapshot, click_time, timeout_sec=180)
         if not downloaded or not os.path.exists(downloaded) or os.path.getsize(downloaded) == 0:
-            raise Exception("M3U文件下载失败（未检测到新的 .m3u 文件）")
+            print("  ❌ 未检测到新的 .m3u 文件，跳过")
+            return False
 
-        # 用“新下载”的文件覆盖到 iptv_latest.m3u
-        if os.path.abspath(downloaded) != os.path.abspath(M3U_PATH):
-            os.replace(downloaded, M3U_PATH)
+        # 覆盖写入 output_path
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        if os.path.abspath(downloaded) != os.path.abspath(output_path):
+            os.replace(downloaded, output_path)
 
-        if not os.path.exists(M3U_PATH) or os.path.getsize(M3U_PATH) == 0:
-            raise Exception("M3U文件下载失败（文件为空或不存在）")
+        if not os.path.exists(output_path) or os.path.getsize(output_path) == 0:
+            print("  ❌ 输出文件为空，跳过")
+            return False
 
+        # 写入来源标记
+        stamp_m3u(output_path, target_ip, target_ip_rank)
 
-        # 写入来源标记（确保换rank/换IP有diff）
-        stamp_m3u(target_ip, target_ip_rank)
-
-        print(f"✅ M3U源文件已下载：{M3U_PATH}")
-
-        # 8) 上传到 GitHub（只提交 m3u）
-        print("【步骤8】上传到GitHub（仅m3u）")
-        do_push = (os.getenv("DO_PUSH") or "0").strip() in ("1", "true", "True")
-
-        if do_push:
-            print("【步骤8】上传到GitHub（脚本内push）")
-            github_link = upload_m3u_to_github(target_ip_rank)
-        else:
-            print("【步骤8】跳过脚本内push（由GitHub Actions负责提交）")
-            github_link = f"https://raw.githubusercontent.com/{YOUR_GITHUB_USERNAME}/IPTV-M3U-Host/{GITHUB_BRANCH}/{GITHUB_M3U_FILE_NAME}"
-
-
-        print("\n【完成】=====")
-        print(f"  关键词：{search_keyword}")
-        print(f"  目标获取：第 {target_ip_rank} 新的有效组播IP")
-        print(f"  选中IP：{target_ip}")
-        print(f"  M3U文件路径：{M3U_PATH}")
-        print(f"  GitHub订阅链接：{github_link}")
+        print(f"✅ 输出成功：{output_path}")
+        return True
 
     except Exception as e:
-        print(f"\n❌ 流程出错：{str(e)}")
+        print(f"  ❌ 发生异常，跳过：{e}")
+        return False
+
+    finally:
+        # 回到主窗口，继续下一轮（批量非常关键）
+        try:
+            if driver and len(driver.window_handles) > 1:
+                # 关闭除第一个以外的窗口，避免越开越多
+                main = driver.window_handles[0]
+                for h in driver.window_handles[1:]:
+                    try:
+                        driver.switch_to.window(h)
+                        driver.close()
+                    except Exception:
+                        pass
+                driver.switch_to.window(main)
+        except Exception:
+            pass
+
+
+def run_single(keyword: str, rank: int) -> int:
+    """单次模式：输出 iptv_latest.m3u"""
+    print(f"【模式】单次模式：keyword={keyword} rank={rank}")
+    print(f"【输出】{M3U_PATH}")
+
+    driver = None
+    try:
+        driver = make_driver(download_dir=GITHUB_REPO_PATH)
+        ok = extract_m3u(driver, keyword, rank, M3U_PATH)
+        return 0 if ok else 2
+    finally:
+        if driver:
+            try:
+                driver.quit()
+            except Exception:
+                pass
+
+
+def run_batch(rank: int, keyword_template: str) -> int:
+    """
+    批量模式：每省一个文件输出到 m3u/<省>.m3u
+    keyword_template:
+      - 默认 "{province}"：例如 "湖北"
+      - 可改为 "{province}省" / "{province}移动" / "{province}武汉" 这种更精确格式
+    """
+    print(f"【模式】批量省份模式：rank={rank} template={keyword_template}")
+    print(f"【输出目录】{OUTPUT_DIR}")
+
+    driver = None
+    success = 0
+    total = 0
+
+    try:
+        driver = make_driver(download_dir=GITHUB_REPO_PATH)
+
+        for p in PROVINCES:
+            total += 1
+            kw = keyword_template.replace("{province}", p).strip()
+            out = os.path.join(OUTPUT_DIR, f"{p}.m3u")
+
+            ok = extract_m3u(driver, kw, rank, out)
+            if ok:
+                success += 1
+
+        print(f"\n【批量完成】成功 {success}/{total}")
+        return 0 if success > 0 else 2
 
     finally:
         if driver:
@@ -499,10 +535,19 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
                 driver.quit()
             except Exception:
                 pass
-        if github_link:
-            print(f"\n【订阅链接】{github_link}")
 
 
 if __name__ == "__main__":
     keyword, rank = get_runtime_config()
-    extract_m3u(keyword, rank)
+
+    batch = (os.getenv("BATCH") or "0").strip() in ("1", "true", "True")
+    keyword_template = (os.getenv("KEYWORD_TEMPLATE") or "{province}").strip()
+
+    print(f"【路径验证】仓库目录：{GITHUB_REPO_PATH}")
+    print(f"【路径验证】是否为Git仓库：{os.path.exists(os.path.join(GITHUB_REPO_PATH, '.git'))}")
+    print(f"【当前配置】BATCH={batch}  HEADLESS={os.getenv('HEADLESS','1')}  rank={rank}")
+
+    if batch:
+        raise SystemExit(run_batch(rank=rank, keyword_template=keyword_template))
+    else:
+        raise SystemExit(run_single(keyword=keyword, rank=rank))

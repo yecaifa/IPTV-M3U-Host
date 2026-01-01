@@ -3,20 +3,29 @@ name: Update IPTV M3U
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: "运行模式：single=单次更新 iptv_latest.m3u；batch=每省生成 m3u/<省>.m3u"
+        required: false
+        default: "batch"
       search_keyword:
-        description: "搜索关键词（默认：湖北省武汉）"
+        description: "单次模式关键词（mode=single 时生效）"
         required: false
         default: "湖北省武汉"
       target_ip_rank:
-        description: "第几个新的有效组播IP（默认：5）"
-        required: false
-        default: "5"
-      headless:
-        description: "是否无头运行：1=无头，0=显示窗口（默认：1）"
+        description: "第几个新的有效组播IP"
         required: false
         default: "1"
+      keyword_template:
+        description: "批量模式关键词模板（mode=batch 时生效），用 {province} 占位。例如：{province}、{province}省"
+        required: false
+        default: "{province}"
+      headless:
+        description: "是否无头运行：1=无头，0=显示窗口"
+        required: false
+        default: "1"
+
   schedule:
-    - cron: "0 */6 * * *"   # 每6小时跑一次（UTC时间）
+    - cron: "0 */12 * * *"   # 每12小时跑一次（UTC时间），批量更耗时，建议不要太频繁
 
 permissions:
   contents: write
@@ -39,7 +48,7 @@ jobs:
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install selenium gitpython requests webdriver-manager
+          pip install selenium requests webdriver-manager
 
       - name: Debug (env)
         run: |
@@ -48,48 +57,44 @@ jobs:
 
       - name: Run script
         env:
-          # 手动 Run workflow 时：取 inputs；定时 schedule 时：inputs 为空，自动回退到默认
+          # mode: single / batch
+          MODE: ${{ github.event.inputs.mode || 'batch' }}
           SEARCH_KEYWORD: ${{ github.event.inputs.search_keyword || '湖北省武汉' }}
-          TARGET_IP_RANK: ${{ github.event.inputs.target_ip_rank || '5' }}
+          TARGET_IP_RANK: ${{ github.event.inputs.target_ip_rank || '1' }}
+          KEYWORD_TEMPLATE: ${{ github.event.inputs.keyword_template || '{province}' }}
           HEADLESS: ${{ github.event.inputs.headless || '1' }}
         run: |
+          if [ "${MODE}" = "batch" ]; then
+            export BATCH=1
+          else
+            export BATCH=0
+          fi
           python iptv_m3u_get_chrome.py
 
-      - name: Debug (list m3u)
+      - name: Debug (list outputs)
         if: always()
         run: |
-          echo "== pwd =="
-          pwd
-
-          echo "== list all files =="
+          echo "== list root =="
           ls -lah
-
-          echo "== list m3u files =="
-          ls -lah *.m3u || true
-
+          echo "== list m3u dir =="
+          ls -lah m3u || true
           echo "== head of iptv_latest.m3u =="
           head -n 5 iptv_latest.m3u || true
 
-          echo "== head of newest m3u =="
-          newest=$(ls -t *.m3u 2>/dev/null | head -n 1 || true)
-          echo "newest=$newest"
-          if [ -n "$newest" ]; then
-            head -n 5 "$newest" || true
-          fi
-
-      - name: Commit & push m3u (if valid and changed)
+      - name: Commit & push (m3u outputs)
         run: |
-          if [ ! -f iptv_latest.m3u ]; then
-            echo "iptv_latest.m3u not found, skip commit."
-            exit 0
-          fi
-          if [ ! -s iptv_latest.m3u ]; then
-            echo "iptv_latest.m3u is empty, skip commit."
-            exit 0
-          fi
-
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add iptv_latest.m3u
-          git diff --cached --quiet || (git commit -m "Update M3U" && git push)
+          # 单次文件（若存在）
+          if [ -f iptv_latest.m3u ] && [ -s iptv_latest.m3u ]; then
+            git add iptv_latest.m3u
+          fi
+
+          # 批量目录（若存在）
+          if [ -d m3u ]; then
+            # 只 add 非空文件
+            find m3u -type f -name "*.m3u" -size +0c -print0 | xargs -0 -r git add
+          fi
+
+          git diff --cached --quiet || (git commit -m "Update M3U outputs" && git push)
