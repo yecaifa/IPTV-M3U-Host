@@ -34,24 +34,50 @@ print(f"【配置验证】目标获取第 {TARGET_IP_RANK} 新的“有效组播
 
 
 def upload_m3u_to_github():
+    """仅上传/更新 M3U 文件到GitHub（只提交 iptv_latest.m3u）"""
     try:
+        if not os.path.exists(GITHUB_REPO_PATH) or not os.path.exists(os.path.join(GITHUB_REPO_PATH, ".git")):
+            raise Exception("当前目录不是Git仓库（缺少.git）")
+        if not os.path.exists(M3U_PATH):
+            raise Exception("M3U文件不存在，无法提交")
+
         repo = Repo(GITHUB_REPO_PATH)
         git = repo.git
 
+        # 确保 origin 存在
+        if "origin" not in [r.name for r in repo.remotes]:
+            raise Exception("未配置远程 origin，请先设置远程仓库")
+
+        # 只 add 目标 m3u 文件
         git.add(GITHUB_M3U_FILE_NAME)
 
-        # staged 有变化才 commit
-        if repo.is_dirty(index=True, working_tree=False, untracked_files=False):
+        # 只判断这个文件是否有变更（避免其它文件变更触发提交）
+        changed = repo.index.diff("HEAD")  # staged diff
+        changed_files = {d.a_path for d in changed}
+
+        # HEAD 不存在（首次提交）时，repo.index.diff("HEAD") 可能异常，做兜底
+        if not repo.head.is_valid():
+            # 首次提交：直接 commit
             commit_msg = f"Update M3U - {time.strftime('%Y-%m-%d %H:%M:%S')}"
             git.commit('-m', commit_msg)
             git.push('origin', GITHUB_BRANCH)
             print(f"✅ GitHub上传成功：{commit_msg}")
+            return f"https://raw.githubusercontent.com/{YOUR_GITHUB_USERNAME}/IPTV-M3U-Host/{GITHUB_BRANCH}/{GITHUB_M3U_FILE_NAME}"
+
+        if GITHUB_M3U_FILE_NAME in changed_files:
+            commit_msg = f"Update M3U (有效组播第{TARGET_IP_RANK}新IP) - {time.strftime('%Y-%m-%d %H:%M:%S')}"
+            git.commit('-m', commit_msg)
+            git.push('origin', GITHUB_BRANCH)
+            print(f"✅ GitHub上传成功：{commit_msg}")
         else:
+            # m3u 没变化就不提交
             print("ℹ️ M3U 文件无变化，无需提交")
 
         return f"https://raw.githubusercontent.com/{YOUR_GITHUB_USERNAME}/IPTV-M3U-Host/{GITHUB_BRANCH}/{GITHUB_M3U_FILE_NAME}"
+
     except Exception as e:
         raise Exception(f"GitHub上传失败：{str(e)}")
+
 
 
 
