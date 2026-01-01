@@ -14,10 +14,10 @@ python iptv_m3u_get.py
 
 ## 订阅
 
-https://raw.githubusercontent.com/yecaifa/IPTV-M3U-Host/main/iptv_latest.m3u
-GitHub 直连打不开时，可在地址前加：https://gh-proxy.com/
+- 原始地址  
+  https://raw.githubusercontent.com/yecaifa/IPTV-M3U-Host/main/iptv_latest.m3u
 
-完整地址:
-https://gh-proxy.com/https://raw.githubusercontent.com/yecaifa/IPTV-M3U-Host/main/iptv_latest.m3u
+- GitHub 直连打不开时（使用 gh-proxy）  
+  https://gh-proxy.com/https://raw.githubusercontent.com/yecaifa/IPTV-M3U-Host/main/iptv_latest.m3u
 
 仅供个人使用。
