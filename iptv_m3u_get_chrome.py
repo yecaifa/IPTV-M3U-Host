@@ -43,7 +43,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # ============================================================================
 
 
-# ===================== 省份列表（可按需增删/改关键词格式）=====================
+# ===================== 地区列表（按需增删）=====================
 PROVINCES = [
     "北京", "天津", "上海", "重庆",
     "河北", "山西", "辽宁", "吉林", "黑龙江",
@@ -128,13 +128,11 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     if headless:
         options.add_argument("--headless=new")
 
-    # 基本稳定性参数
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-gpu")
     options.add_argument("--window-size=1920,1080")
 
-    # Headless / 自动化兼容增强（尽量像真实浏览器）
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
@@ -144,7 +142,6 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
         "Chrome/120.0.0.0 Safari/537.36"
     )
 
-    # 下载目录设置（Linux/Windows 都生效）
     prefs = {
         "download.default_directory": download_dir,
         "download.prompt_for_download": False,
@@ -153,11 +150,9 @@ def make_driver(download_dir: str) -> webdriver.Chrome:
     }
     options.add_experimental_option("prefs", prefs)
 
-    # webdriver-manager 拉取 chromedriver（本地若网络受限可能失败；Actions 通常没问题）
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
-    # 去掉 webdriver 标记
     try:
         driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
             "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
@@ -200,11 +195,7 @@ def snapshot_m3u_mtimes(download_dir: str) -> Dict[str, float]:
 
 def wait_for_new_m3u_file(download_dir: str, before_snapshot: Dict[str, float], click_time: float,
                           timeout_sec: int = 180) -> Optional[str]:
-    """
-    等待“新下载”的 m3u：
-    - 优先：出现一个 before_snapshot 中不存在的新文件
-    - 次优：已有 m3u 文件的 mtime 变得比 click_time 更新（或比旧值更大）
-    """
+    """等待“新下载”的 m3u 文件出现"""
     deadline = time.time() + timeout_sec
 
     def list_m3u() -> List[Tuple[str, float, int, str]]:
@@ -226,13 +217,11 @@ def wait_for_new_m3u_file(download_dir: str, before_snapshot: Dict[str, float], 
     while time.time() < deadline:
         m3us = list_m3u()
 
-        # 1) 新文件（之前不存在）
         new_files = [x for x in m3us if x[0] not in before_snapshot and x[2] > 0]
         if new_files:
             new_files.sort(key=lambda x: x[1], reverse=True)
             return new_files[0][3]
 
-        # 2) 老文件被更新（mtime 变新）
         updated_files = []
         for name, mtime, size, full in m3us:
             if size <= 0:
@@ -253,7 +242,7 @@ def wait_for_new_m3u_file(download_dir: str, before_snapshot: Dict[str, float], 
 
 
 def stamp_m3u(path: str, target_ip: str, target_ip_rank: int):
-    """在 m3u 头部写入本次来源标记（纯注释，通常不影响播放器）"""
+    """在 m3u 头部写入本次来源标记（纯注释）"""
     if not ENABLE_STAMP:
         return
     try:
@@ -262,7 +251,6 @@ def stamp_m3u(path: str, target_ip: str, target_ip_rank: int):
             content = f.read()
 
         lines = content.splitlines(True)
-        # 移除旧 stamp
         lines = [ln for ln in lines if not ln.startswith("# source_ip=")]
 
         if lines and lines[0].startswith("#EXTM3U"):
@@ -277,24 +265,14 @@ def stamp_m3u(path: str, target_ip: str, target_ip_rank: int):
 
 
 def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: int, output_path: str) -> bool:
-    """
-    单次抓取：
-    - 搜索 keyword
-    - 在 Multicast IPTV 中找“有效组播IP”
-    - 选择第 rank 个
-    - 模拟点击下载 m3u
-    - 输出到 output_path
-    返回：成功 True / 失败 False（失败不抛异常，方便批量继续）
-    """
+    """单次抓取（失败返回 False，方便批量继续）"""
     try:
         print(f"\n========== 开始：{search_keyword} -> {os.path.relpath(output_path, GITHUB_REPO_PATH)} ==========")
 
-        # 1) 打开首页
         print(f"【步骤1】打开首页：{HOME_PAGE_URL}")
         driver.get(HOME_PAGE_URL)
         time.sleep(FIXED_DELAY * 2)
 
-        # 2) 搜索关键词
         print(f"【步骤2】搜索：{search_keyword}")
         try:
             search_input = driver.find_element(By.NAME, "q")
@@ -308,7 +286,6 @@ def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: i
         time.sleep(FIXED_DELAY * 2)
         wait_for_dynamic_content(driver, timeout_sec=25)
 
-        # 3) 只提取 Multicast IPTV 中“有效”的组播IP
         print(f"【步骤3】提取 Multicast IPTV 中有效的组播IP...")
 
         ip_pattern_anywhere = re.compile(r'(\d{1,3}(?:\.\d{1,3}){3})')
@@ -361,7 +338,6 @@ def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: i
                 if ip in seen_ip:
                     continue
 
-                # 找可点击链接（保持后续 click 逻辑）
                 link_elem = None
                 try:
                     link_elem = row.find_element(By.XPATH, f".//a[normalize-space(text())='{ip}']")
@@ -390,12 +366,11 @@ def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: i
 
         print(f"  ✅ 提取到 {len(multicast_items)} 个有效组播IP")
         if not multicast_items:
-            print("  ❌ 未找到任何有效的组播IP，跳过")
+            print("  ❌ 未找到任何有效组播IP，跳过")
             return False
 
         multicast_items.sort(key=lambda x: x["sort_key"])
 
-        # 打印前10个（避免日志过长）
         print("  📋 有效组播IP列表（前10个，1=最新）：")
         for idx, item in enumerate(multicast_items[:10], start=1):
             mark = "【目标】" if idx == target_ip_rank else ""
@@ -410,27 +385,21 @@ def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: i
         target_link = target["link"]
         print(f"  ✅ 选中：{target_ip}（{target['status']}）")
 
-        # 4) 进入 IP 详情页（模拟点击）
         print(f"【步骤4】进入IP详情页：{target_ip}")
         target_link.click()
         WebDriverWait(driver, ELEMENT_TIMEOUT).until(EC.staleness_of(target_link))
         time.sleep(FIXED_DELAY * 2)
 
-        # 5) 点击“查看频道列表”
         print("【步骤5】点击查看频道列表")
         channel_btn = WebDriverWait(driver, ELEMENT_TIMEOUT).until(
             EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), '查看频道列表')]"))
         )
         channel_btn.click()
 
-        # 切换到新窗口
         driver.switch_to.window(driver.window_handles[-1])
         time.sleep(FIXED_DELAY * 2)
 
-        # 6) 点击“M3U下载”
         print("【步骤6】点击M3U下载")
-
-        # 点击前快照，确保抓到“新下载文件”
         before_snapshot = snapshot_m3u_mtimes(GITHUB_REPO_PATH)
 
         m3u_download_btn = WebDriverWait(driver, ELEMENT_TIMEOUT).until(
@@ -439,14 +408,12 @@ def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: i
         click_time = time.time()
         m3u_download_btn.click()
 
-        # 7) 等待新 m3u 出现
         print("【步骤7】等待下载完成")
         downloaded = wait_for_new_m3u_file(GITHUB_REPO_PATH, before_snapshot, click_time, timeout_sec=180)
         if not downloaded or not os.path.exists(downloaded) or os.path.getsize(downloaded) == 0:
             print("  ❌ 未检测到新的 .m3u 文件，跳过")
             return False
 
-        # 覆盖写入 output_path
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         if os.path.abspath(downloaded) != os.path.abspath(output_path):
             os.replace(downloaded, output_path)
@@ -455,7 +422,6 @@ def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: i
             print("  ❌ 输出文件为空，跳过")
             return False
 
-        # 写入来源标记
         stamp_m3u(output_path, target_ip, target_ip_rank)
 
         print(f"✅ 输出成功：{output_path}")
@@ -466,10 +432,8 @@ def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: i
         return False
 
     finally:
-        # 回到主窗口，继续下一轮（批量非常关键）
         try:
             if driver and len(driver.window_handles) > 1:
-                # 关闭除第一个以外的窗口，避免越开越多
                 main = driver.window_handles[0]
                 for h in driver.window_handles[1:]:
                     try:
@@ -482,8 +446,51 @@ def extract_m3u(driver: webdriver.Chrome, search_keyword: str, target_ip_rank: i
             pass
 
 
+# ✅ 关键：为每个地区生成“候选关键词列表”，逐个尝试（最稳）
+def build_keyword_candidates(region: str) -> List[str]:
+    region = region.strip()
+
+    municipalities = {"北京", "上海", "天津", "重庆"}
+    sar = {"香港", "澳门"}
+    autonomous = {"内蒙古", "广西", "西藏", "宁夏", "新疆"}
+
+    candidates: List[str] = []
+
+    if region in municipalities:
+        # 你确认：北京要“北京市”
+        candidates += [f"{region}市", region]
+    elif region in sar:
+        candidates += [f"{region}特别行政区", region]
+    elif region in autonomous:
+        # 有些站会用“自治区”，也可能直接用简称
+        if region == "内蒙古":
+            candidates += ["内蒙古", "内蒙古自治区"]
+        elif region == "广西":
+            candidates += ["广西", "广西壮族自治区"]
+        elif region == "西藏":
+            candidates += ["西藏", "西藏自治区"]
+        elif region == "宁夏":
+            candidates += ["宁夏", "宁夏回族自治区"]
+        elif region == "新疆":
+            candidates += ["新疆", "新疆维吾尔自治区"]
+        else:
+            candidates += [region]
+    else:
+        # 普通省：你确认“湖北”不行，要“湖北省”
+        candidates += [f"{region}省", region]
+
+    # 去重且保持顺序
+    seen = set()
+    out = []
+    for c in candidates:
+        c = c.strip()
+        if c and c not in seen:
+            seen.add(c)
+            out.append(c)
+    return out
+
+
 def run_single(keyword: str, rank: int) -> int:
-    """单次模式：输出 iptv_latest.m3u"""
     print(f"【模式】单次模式：keyword={keyword} rank={rank}")
     print(f"【输出】{M3U_PATH}")
 
@@ -500,14 +507,12 @@ def run_single(keyword: str, rank: int) -> int:
                 pass
 
 
-def run_batch(rank: int, keyword_template: str) -> int:
+def run_batch(rank: int) -> int:
     """
-    批量模式：每省一个文件输出到 m3u/<省>.m3u
-    keyword_template:
-      - 默认 "{province}"：例如 "湖北"
-      - 可改为 "{province}省" / "{province}移动" / "{province}武汉" 这种更精确格式
+    批量模式：每个地区一个文件输出到 m3u/<地区>.m3u
+    ✅ 每个地区会按候选关键词依次尝试，直到成功或全部失败。
     """
-    print(f"【模式】批量省份模式：rank={rank} template={keyword_template}")
+    print(f"【模式】批量省份模式：rank={rank}")
     print(f"【输出目录】{OUTPUT_DIR}")
 
     driver = None
@@ -517,14 +522,24 @@ def run_batch(rank: int, keyword_template: str) -> int:
     try:
         driver = make_driver(download_dir=GITHUB_REPO_PATH)
 
-        for p in PROVINCES:
+        for region in PROVINCES:
             total += 1
-            kw = keyword_template.replace("{province}", p).strip()
-            out = os.path.join(OUTPUT_DIR, f"{p}.m3u")
+            out = os.path.join(OUTPUT_DIR, f"{region}.m3u")
 
-            ok = extract_m3u(driver, kw, rank, out)
-            if ok:
+            candidates = build_keyword_candidates(region)
+            print(f"\n--- 地区：{region} 关键词候选：{candidates} ---")
+
+            ok_any = False
+            for kw in candidates:
+                ok = extract_m3u(driver, kw, rank, out)
+                if ok:
+                    ok_any = True
+                    break
+
+            if ok_any:
                 success += 1
+            else:
+                print(f"  ❌ {region} 全部关键词均失败，跳过")
 
         print(f"\n【批量完成】成功 {success}/{total}")
         return 0 if success > 0 else 2
@@ -541,13 +556,12 @@ if __name__ == "__main__":
     keyword, rank = get_runtime_config()
 
     batch = (os.getenv("BATCH") or "0").strip() in ("1", "true", "True")
-    keyword_template = (os.getenv("KEYWORD_TEMPLATE") or "{province}").strip()
 
     print(f"【路径验证】仓库目录：{GITHUB_REPO_PATH}")
     print(f"【路径验证】是否为Git仓库：{os.path.exists(os.path.join(GITHUB_REPO_PATH, '.git'))}")
     print(f"【当前配置】BATCH={batch}  HEADLESS={os.getenv('HEADLESS','1')}  rank={rank}")
 
     if batch:
-        raise SystemExit(run_batch(rank=rank, keyword_template=keyword_template))
+        raise SystemExit(run_batch(rank=rank))
     else:
         raise SystemExit(run_single(keyword=keyword, rank=rank))
