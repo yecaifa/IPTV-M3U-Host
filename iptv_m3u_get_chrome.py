@@ -525,6 +525,11 @@ def try_open_by_token_url(driver: webdriver.Chrome, province_code: str) -> bool:
         token = get_token_from_current_url(driver)
         if not token:
             driver.get(HOME_PAGE_URL)
+            print("[debug] title=", driver.title, flush=True)
+            print("[debug] url=", driver.current_url, flush=True)
+            src = (driver.page_source or "")[:500]
+            print("[debug] source_head=", src.replace("\n"," ") , flush=True)
+
             time.sleep(FIXED_DELAY * 2)
             wait_for_dynamic_content(driver, timeout_sec=10)
             token = get_token_from_current_url(driver)
