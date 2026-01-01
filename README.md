@@ -1,23 +1,28 @@
-# IPTV 自动更新（自用）
+﻿# IPTV-M3U-Host
 
-个人使用的 IPTV M3U 自动更新脚本。
+自动抓取 IPTV 频道列表并更新 `iptv_latest.m3u`（GitHub Actions 定时运行）。
 
-从 `iptv.cqshushu.com` 搜索 IPTV，  
-仅使用 **Multicast（组播）** 中状态正常的 IP，  
-自动下载并更新 `iptv_latest.m3u` 到 GitHub。
+## 订阅地址
 
-## 使用
+**Raw：**
+https://raw.githubusercontent.com/yecaifa/IPTV-M3U-Host/main/iptv_latest.m3u
 
-运行IPTV脚本.bat
-或
-python iptv_m3u_get.py
+**Raw 无法直连时（gh-proxy）：**
+https://gh-proxy.com/https://raw.githubusercontent.com/yecaifa/IPTV-M3U-Host/main/iptv_latest.m3u
 
-## 订阅
+## GitHub Actions
 
-- 原始地址  
-  https://raw.githubusercontent.com/yecaifa/IPTV-M3U-Host/main/iptv_latest.m3u
+工作流：`.github/workflows/update_m3u.yml`
 
-- GitHub 直连打不开时（使用 gh-proxy）  
-  https://gh-proxy.com/https://raw.githubusercontent.com/yecaifa/IPTV-M3U-Host/main/iptv_latest.m3u
+可在 workflow 中修改：
+- `SEARCH_KEYWORD`
+- `TARGET_IP_RANK`
 
-仅供个人使用。
+## 本地运行（可选）
+
+```powershell
+pip install selenium gitpython requests webdriver-manager
+$env:SEARCH_KEYWORD="湖北省武汉"
+$env:TARGET_IP_RANK="1"
+$env:HEADLESS="1"
+python iptv_m3u_get_chrome.py

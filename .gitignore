@@ -1,9 +1,4 @@
-__pycache__/
+﻿__pycache__/
 *.log
 *.tmp
-*.crdownload
-*.zip
-*.rar
-.env
-.vscode/
-
+.DS_Store
