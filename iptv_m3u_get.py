@@ -8,13 +8,16 @@ import os
 import time
 import urllib.parse
 
-# ===================== 配置项=====================
-SEARCH_KEYWORD = "湖北省武汉"
+# ===================== 配置项（默认值）=====================
+DEFAULT_SEARCH_KEYWORD = "湖北省武汉"
+DEFAULT_TARGET_IP_RANK = 1
+
 HOME_PAGE_URL = "https://iptv.cqshushu.com"
 ELEMENT_TIMEOUT = 60
 PAGE_LOAD_TIMEOUT = 120
 FIXED_DELAY = 3
-TARGET_IP_RANK = 1  #获取“有效组播IP”里的第n新
+# ==========================================================
+
 
 # GitHub配置
 GITHUB_REPO_PATH = os.path.dirname(__file__)
@@ -307,4 +310,17 @@ def extract_m3u():
 
 
 if __name__ == "__main__":
+    try:
+        kw = input(f"请输入搜索关键词（回车=默认：{DEFAULT_SEARCH_KEYWORD}）：").strip()
+        rk = input(f"请输入第几个新的IP（回车=默认：{DEFAULT_TARGET_IP_RANK}）：").strip()
+
+        SEARCH_KEYWORD = kw if kw else DEFAULT_SEARCH_KEYWORD
+        TARGET_IP_RANK = int(rk) if rk.isdigit() else DEFAULT_TARGET_IP_RANK
+
+    except Exception:
+        SEARCH_KEYWORD = DEFAULT_SEARCH_KEYWORD
+        TARGET_IP_RANK = DEFAULT_TARGET_IP_RANK
+
+    print(f"\n【当前配置】关键词={SEARCH_KEYWORD}，第{TARGET_IP_RANK}新IP\n")
+
     extract_m3u()
