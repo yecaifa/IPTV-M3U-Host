@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=60.18.217.54 rank=1 updated_at=2026-01-01 19:47:14
+# source_ip=60.18.217.54 rank=1 updated_at=2026-01-01 22:05:04
 #EXTINF:-1 tvg-id="辽宁卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="辽宁省铁岭市组播 辽宁联通",辽宁卫视
 http://60.18.217.54:9527/rtp/232.0.0.126:1234
 #EXTINF:-1 tvg-id="辽宁都市" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="辽宁省铁岭市组播 辽宁联通",辽宁都市

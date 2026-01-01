@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=180.112.175.37 rank=1 updated_at=2026-01-01 19:48:44
+# source_ip=180.112.175.37 rank=1 updated_at=2026-01-01 22:06:34
 #EXTINF:-1 tvg-id="江苏城市高清" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="江苏省无锡市组播 江苏电信",江苏城市高清
 http://180.112.175.37:8800/rtp/239.49.8.107:8000
 #EXTINF:-1 tvg-id="江苏综艺高清" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="江苏省无锡市组播 江苏电信",江苏综艺高清

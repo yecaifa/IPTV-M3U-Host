@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=27.191.202.133 rank=1 updated_at=2026-01-01 19:46:14
+# source_ip=27.191.202.133 rank=1 updated_at=2026-01-01 22:04:04
 #EXTINF:-1 tvg-id="CCTV-1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="河北省唐山市组播 河北电信",CCTV-1
 http://27.191.202.133:19999/rtp/239.254.200.45:8008
 #EXTINF:-1 tvg-id="CCTV-2" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="河北省唐山市组播 河北电信",CCTV-2
