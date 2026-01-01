@@ -69,7 +69,7 @@ jobs:
           else
             export BATCH=0
           fi
-          python iptv_m3u_get_chrome.py
+          python -u iptv_m3u_get_chrome.py
 
       - name: Debug (list outputs)
         if: always()
