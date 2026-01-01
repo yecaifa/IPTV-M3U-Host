@@ -457,7 +457,15 @@ def extract_m3u(search_keyword: str, target_ip_rank: int):
 
         # 8) 上传到 GitHub（只提交 m3u）
         print("【步骤8】上传到GitHub（仅m3u）")
-        github_link = upload_m3u_to_github(target_ip_rank)
+        do_push = (os.getenv("DO_PUSH") or "0").strip() in ("1", "true", "True")
+
+        if do_push:
+            print("【步骤8】上传到GitHub（脚本内push）")
+            github_link = upload_m3u_to_github(target_ip_rank)
+        else:
+            print("【步骤8】跳过脚本内push（由GitHub Actions负责提交）")
+            github_link = f"https://raw.githubusercontent.com/{YOUR_GITHUB_USERNAME}/IPTV-M3U-Host/{GITHUB_BRANCH}/{GITHUB_M3U_FILE_NAME}"
+
 
         print("\n【完成】=====")
         print(f"  关键词：{search_keyword}")
