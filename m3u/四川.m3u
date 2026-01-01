@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=182.142.180.129 rank=1 updated_at=2026-01-01 22:12:06
+# source_ip=182.142.180.129 rank=1 updated_at=2026-01-01 22:55:39
 #EXTINF:-1 tvg-id="四川卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="四川省宜宾市翠屏区组播 四川电信",四川卫视4K
 http://182.142.180.129:8188/rtp/239.94.0.115:5140
 #EXTINF:-1 tvg-id="湖南卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="四川省宜宾市翠屏区组播 四川电信",湖南卫视4K

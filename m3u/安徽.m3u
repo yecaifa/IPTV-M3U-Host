@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=124.112.240.79 rank=1 updated_at=2026-01-01 22:07:35
+# source_ip=124.112.240.79 rank=1 updated_at=2026-01-01 22:51:04
 #EXTINF:-1 tvg-id="东方卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="安徽省宣城市宁国市组播 安徽电信",东方卫视4K
 http://124.112.240.79:4022/rtp/238.1.79.39:4428
 #EXTINF:-1 tvg-id="浙江卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="安徽省宣城市宁国市组播 安徽电信",浙江卫视4K

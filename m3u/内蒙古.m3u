@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=116.234.74.17 rank=1 updated_at=2026-01-01 22:15:23
+# source_ip=116.234.74.17 rank=1 updated_at=2026-01-01 23:00:57
 #EXTINF:-1 tvg-id="CCTV4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="上海市上海市组播 上海电信",CCTV4K
 http://116.234.74.17:8188/rtp/233.18.204.188:5140
 #EXTINF:-1 tvg-id="CCTV4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="上海市上海市组播 上海电信",CCTV4K

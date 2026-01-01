@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=113.95.137.174 rank=1 updated_at=2026-01-01 22:11:06
+# source_ip=113.95.137.174 rank=1 updated_at=2026-01-01 22:54:38
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="广东省肇庆市组播 广东电信",CCTV1
 http://113.95.137.174:4022/rtp/239.77.0.14:5146
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="广东省肇庆市组播 广东电信",CCTV1

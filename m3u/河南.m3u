@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=42.237.223.34 rank=1 updated_at=2026-01-01 22:09:35
+# source_ip=42.237.223.34 rank=1 updated_at=2026-01-01 22:53:06
 #EXTINF:-1 tvg-id="CCTV-1高清" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="河南省平顶山市宝丰县组播 河南联通",CCTV-1高清
 http://42.237.223.34:8899/rtp/225.1.4.73:1102
 #EXTINF:-1 tvg-id="CCTV-2高清" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="河南省平顶山市宝丰县组播 河南联通",CCTV-2高清

@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=106.87.49.17 rank=1 updated_at=2026-01-01 22:03:34
+# source_ip=106.87.49.17 rank=1 updated_at=2026-01-01 22:47:01
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市重庆市组播 重庆电信",CCTV1
 http://106.87.49.17:8888/rtp/235.254.197.250:7980
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市重庆市组播 重庆电信",CCTV1

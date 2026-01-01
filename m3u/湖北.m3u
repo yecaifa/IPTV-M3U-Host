@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=111.179.204.193 rank=1 updated_at=2026-01-01 22:10:05
+# source_ip=111.179.204.193 rank=1 updated_at=2026-01-01 22:53:36
 #EXTINF:-1 tvg-id="CCTV4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="湖北省黄冈市罗田县组播 湖北电信",CCTV4K
 http://111.179.204.193:8090/rtp/239.69.1.111:10304
 #EXTINF:-1 tvg-id="CCTV16 4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="湖北省黄冈市罗田县组播 湖北电信",CCTV16 4K
