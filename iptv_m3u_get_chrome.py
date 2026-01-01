@@ -619,9 +619,6 @@ def run_batch(rank: int, keyword_template: str) -> int:
 
 
 if __name__ == "__main__":
-    print("=== SCRIPT START ===", flush=True)
-    print("HEADLESS=", os.getenv("HEADLESS"), "BATCH=", os.getenv("BATCH"), flush=True)
-
     keyword, rank = get_runtime_config()
     batch = (os.getenv("BATCH") or "0").strip() in ("1", "true", "True")
     keyword_template = (os.getenv("KEYWORD_TEMPLATE") or "{province}省").strip()
