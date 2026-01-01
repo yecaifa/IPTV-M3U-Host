@@ -34,38 +34,25 @@ print(f"【配置验证】目标获取第 {TARGET_IP_RANK} 新的“有效组播
 
 
 def upload_m3u_to_github():
-    """上传仓库所有变更到GitHub（包含 .py / .bat / .gitignore / .m3u 等）"""
     try:
-        # 基本校验
-        if not os.path.exists(GITHUB_REPO_PATH) or not os.path.exists(os.path.join(GITHUB_REPO_PATH, ".git")):
-            raise Exception("当前目录不是Git仓库（缺少.git）")
-
         repo = Repo(GITHUB_REPO_PATH)
         git = repo.git
 
-        # 确保有远程 origin（避免 push 报错）
-        if "origin" not in [r.name for r in repo.remotes]:
-            raise Exception("未配置远程 origin，请先在本地执行：git remote add origin <你的仓库地址>")
+        git.add(GITHUB_M3U_FILE_NAME)
 
-        # 有变更才提交（包含未跟踪文件）
-        if repo.is_dirty(untracked_files=True):
-            # 添加所有变更：新增/修改/删除 都会提交（.gitignore 会生效）
-            git.add(A=True)  # 等价于：git add -A
-
-            commit_msg = f"Update repo files (有效组播第{TARGET_IP_RANK}新IP) - {time.strftime('%Y-%m-%d %H:%M:%S')}"
+        # staged 有变化才 commit
+        if repo.is_dirty(index=True, working_tree=False, untracked_files=False):
+            commit_msg = f"Update M3U - {time.strftime('%Y-%m-%d %H:%M:%S')}"
             git.commit('-m', commit_msg)
-
-            # 推送
             git.push('origin', GITHUB_BRANCH)
             print(f"✅ GitHub上传成功：{commit_msg}")
         else:
-            print("ℹ️ 仓库无变更，无需提交")
+            print("ℹ️ M3U 文件无变化，无需提交")
 
-        # 仍然返回你原来的 raw 订阅链接（不影响）
         return f"https://raw.githubusercontent.com/{YOUR_GITHUB_USERNAME}/IPTV-M3U-Host/{GITHUB_BRANCH}/{GITHUB_M3U_FILE_NAME}"
-
     except Exception as e:
         raise Exception(f"GitHub上传失败：{str(e)}")
+
 
 
 
