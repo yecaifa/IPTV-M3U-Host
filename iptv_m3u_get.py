@@ -8,13 +8,13 @@ import os
 import time
 import urllib.parse
 
-# ===================== 配置项（新增：TARGET_IP_RANK 指定第n新的IP）=====================
+# ===================== 配置项=====================
 SEARCH_KEYWORD = "湖北省武汉"
 HOME_PAGE_URL = "https://iptv.cqshushu.com"
 ELEMENT_TIMEOUT = 60
 PAGE_LOAD_TIMEOUT = 120
 FIXED_DELAY = 3
-TARGET_IP_RANK = 1  # 关键配置：获取“有效组播IP”里的第n新（1=最新，2=第二新，以此类推）
+TARGET_IP_RANK = 1  #获取“有效组播IP”里的第n新
 
 # GitHub配置
 GITHUB_REPO_PATH = os.path.dirname(__file__)

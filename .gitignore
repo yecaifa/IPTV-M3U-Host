@@ -6,4 +6,4 @@ __pycache__/
 *.rar
 .env
 .vscode/
-.DS_Store
+
