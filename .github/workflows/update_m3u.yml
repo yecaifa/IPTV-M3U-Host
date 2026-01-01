@@ -31,7 +31,7 @@ jobs:
       - name: Run script
         env:
           SEARCH_KEYWORD: "湖北省武汉"
-          TARGET_IP_RANK: "1"
+          TARGET_IP_RANK: "5"
           HEADLESS: "1"
         run: |
           python iptv_m3u_get_chrome.py
