@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=144.255.40.174 rank=1 updated_at=2026-01-02 01:04:37
+# source_ip=144.255.40.174 rank=1 updated_at=2026-01-02 12:30:21
 #EXTINF:-1 tvg-id="广东卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="山东省烟台市莱阳市组播 山东电信",广东卫视4K
 http://144.255.40.174:4022/rtp/239.21.2.173:5002
 #EXTINF:-1 tvg-id="深圳卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="山东省烟台市莱阳市组播 山东电信",深圳卫视4K
