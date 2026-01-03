@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=115.150.96.206 rank=1 updated_at=2026-01-02 12:29:48
+# source_ip=115.150.96.206 rank=1 updated_at=2026-01-03 01:00:29
 #EXTINF:-1 tvg-id="江西卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="江西省赣州市组播 江西电信",江西卫视HD
 http://115.150.96.206:34567/rtp/239.252.220.63:5140
 #EXTINF:-1 tvg-id="江西都市频道HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="江西省赣州市组播 江西电信",江西都市频道HD

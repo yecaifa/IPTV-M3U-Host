@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=60.219.228.94 rank=1 updated_at=2026-01-02 12:26:51
+# source_ip=60.219.228.94 rank=1 updated_at=2026-01-03 00:57:55
 #EXTINF:-1 tvg-id="CCTV1高清" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="黑龙江省哈尔滨市组播 黑龙江联通",CCTV1高清
 http://60.219.228.94:4000/rtp/229.58.190.151:5000
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="黑龙江省哈尔滨市组播 黑龙江联通",CCTV1
