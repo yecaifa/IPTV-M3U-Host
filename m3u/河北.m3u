@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=27.184.16.207 rank=1 updated_at=2026-01-03 00:55:53
+# source_ip=27.184.16.207 rank=1 updated_at=2026-01-03 12:23:08
 #EXTINF:-1 tvg-id="CCTV-1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="河北省石家庄市长安区组播 河北电信",CCTV-1
 http://27.184.16.207:7088/rtp/239.254.200.45:8008
 #EXTINF:-1 tvg-id="CCTV-2" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="河北省石家庄市长安区组播 河北电信",CCTV-2

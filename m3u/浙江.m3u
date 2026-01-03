@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=183.148.205.243 rank=1 updated_at=2026-01-03 00:58:56
+# source_ip=183.148.205.243 rank=1 updated_at=2026-01-03 12:26:09
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="浙江省台州市临海市组播 浙江电信",CCTV1
 http://183.148.205.243:55555/rtp/233.50.201.222:5140
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="浙江省台州市临海市组播 浙江电信",CCTV1

@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=121.233.249.95 rank=1 updated_at=2026-01-03 00:58:25
+# source_ip=121.233.249.95 rank=1 updated_at=2026-01-03 12:25:39
 #EXTINF:-1 tvg-id="江苏城市高清" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="江苏省扬州市邗江区组播 江苏电信",江苏城市高清
 http://121.233.249.95:8888/rtp/239.49.8.107:8000
 #EXTINF:-1 tvg-id="江苏综艺高清" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="江苏省扬州市邗江区组播 江苏电信",江苏综艺高清

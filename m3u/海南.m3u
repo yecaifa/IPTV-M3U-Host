@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=112.67.37.67 rank=1 updated_at=2026-01-03 01:03:35
+# source_ip=112.67.37.67 rank=1 updated_at=2026-01-03 12:30:45
 #EXTINF:-1 tvg-id="北京卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="海南省儋州市组播 海南电信",北京卫视4K
 http://112.67.37.67:8686/rtp/239.253.64.92:5140
 #EXTINF:-1 tvg-id="东方卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="海南省儋州市组播 海南电信",东方卫视4K
