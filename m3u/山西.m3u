@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=118.78.196.29 rank=1 updated_at=2026-01-04 01:05:40
+# source_ip=118.78.196.29 rank=1 updated_at=2026-01-04 12:24:06
 #EXTINF:-1 tvg-id="北京卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="山西省运城市盐湖区组播 山西联通",北京卫视4K
 http://118.78.196.29:55555/rtp/226.0.2.155:9172
 #EXTINF:-1 tvg-id="东方卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="山西省运城市盐湖区组播 山西联通",东方卫视4K

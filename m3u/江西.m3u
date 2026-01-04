@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=220.175.144.74 rank=1 updated_at=2026-01-04 01:10:56
+# source_ip=220.175.144.74 rank=1 updated_at=2026-01-04 12:28:14
 #EXTINF:-1 tvg-id="江西卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="江西省九江市柴桑区组播 江西电信",江西卫视HD
 http://220.175.144.74:9000/rtp/239.252.220.63:5140
 #EXTINF:-1 tvg-id="江西都市频道HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="江西省九江市柴桑区组播 江西电信",江西都市频道HD

@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=123.145.21.58 rank=1 updated_at=2026-01-04 01:04:35
+# source_ip=123.145.21.58 rank=1 updated_at=2026-01-04 12:23:05
 #EXTINF:-1 tvg-id="北京卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",北京卫视4K
 http://123.145.21.58:8004/rtp/225.0.4.122:7980
 #EXTINF:-1 tvg-id="东方卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",东方卫视4K
