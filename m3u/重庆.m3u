@@ -1,336 +1,306 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=123.145.21.58 rank=1 updated_at=2026-01-04 12:23:05
-#EXTINF:-1 tvg-id="北京卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",北京卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.122:7980
-#EXTINF:-1 tvg-id="东方卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",东方卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.103:7980
-#EXTINF:-1 tvg-id="广东卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",广东卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.102:7980
-#EXTINF:-1 tvg-id="深圳卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",深圳卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.101:7980
-#EXTINF:-1 tvg-id="湖南卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",湖南卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.107:7980
-#EXTINF:-1 tvg-id="山东卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",山东卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.106:7980
-#EXTINF:-1 tvg-id="四川卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",四川卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.108:7980
-#EXTINF:-1 tvg-id="浙江卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",浙江卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.105:7980
-#EXTINF:-1 tvg-id="江苏卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",江苏卫视4K
-http://123.145.21.58:8004/rtp/225.0.4.104:7980
-#EXTINF:-1 tvg-id="爱上4K(轮播频道)" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",爱上4K(轮播频道)
-http://123.145.21.58:8004/rtp/225.0.4.226:7980
-#EXTINF:-1 tvg-id="CCTV1HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV1HD
-http://123.145.21.58:8004/rtp/225.0.4.74:7980
-#EXTINF:-1 tvg-id="CCTV2HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV2HD
-http://123.145.21.58:8004/rtp/225.0.4.132:7980
-#EXTINF:-1 tvg-id="CCTV3HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV3HD
-http://123.145.21.58:8004/rtp/225.0.4.142:7980
-#EXTINF:-1 tvg-id="CCTV4HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV4HD
-http://123.145.21.58:8004/rtp/225.0.4.176:7980
-#EXTINF:-1 tvg-id="CCTV5HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV5HD
-http://123.145.21.58:8004/rtp/225.0.4.143:7980
-#EXTINF:-1 tvg-id="CCTV5+HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV5+HD
-http://123.145.21.58:8004/rtp/225.0.4.73:7980
-#EXTINF:-1 tvg-id="CCTV6HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV6HD
-http://123.145.21.58:8004/rtp/225.0.4.144:7980
-#EXTINF:-1 tvg-id="CCTV7HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV7HD
-http://123.145.21.58:8004/rtp/225.0.4.127:7980
-#EXTINF:-1 tvg-id="CCTV8HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV8HD
-http://123.145.21.58:8004/rtp/225.0.4.137:7980
-#EXTINF:-1 tvg-id="CCTV9HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV9HD
-http://123.145.21.58:8004/rtp/225.0.4.131:7980
-#EXTINF:-1 tvg-id="CCTV10HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV10HD
-http://123.145.21.58:8004/rtp/225.0.4.130:7980
-#EXTINF:-1 tvg-id="CCTV11HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV11HD
-http://123.145.21.58:8004/rtp/225.0.4.218:7980
-#EXTINF:-1 tvg-id="CCTV12HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV12HD
-http://123.145.21.58:8004/rtp/225.0.4.129:7980
-#EXTINF:-1 tvg-id="CCTV13HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV13HD
-http://123.145.21.58:8004/rtp/225.0.4.219:7980
-#EXTINF:-1 tvg-id="CCTV14HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV14HD
-http://123.145.21.58:8004/rtp/225.0.4.128:7980
-#EXTINF:-1 tvg-id="CCTV15HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV15HD
-http://123.145.21.58:8004/rtp/225.0.4.220:7980
-#EXTINF:-1 tvg-id="CCTV17HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV17HD
-http://123.145.21.58:8004/rtp/225.0.4.179:7980
-#EXTINF:-1 tvg-id="CETV1HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CETV1HD
-http://123.145.21.58:8004/rtp/225.0.4.186:7980
-#EXTINF:-1 tvg-id="CETV4HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CETV4HD
-http://123.145.21.58:8004/rtp/225.0.4.182:7980
-#EXTINF:-1 tvg-id="CHC影迷电影HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CHC影迷电影HD
-http://123.145.21.58:8004/rtp/225.0.4.230:7980
-#EXTINF:-1 tvg-id="CHC家庭影院HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CHC家庭影院HD
-http://123.145.21.58:8004/rtp/225.0.4.228:7980
-#EXTINF:-1 tvg-id="CHC动作电影HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CHC动作电影HD
-http://123.145.21.58:8004/rtp/225.0.4.229:7980
-#EXTINF:-1 tvg-id="中学生HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",中学生HD
-http://123.145.21.58:8004/rtp/225.0.4.184:7980
-#EXTINF:-1 tvg-id="法治天地HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",法治天地HD
-http://123.145.21.58:8004/rtp/225.0.4.240:7980
-#EXTINF:-1 tvg-id="游戏风云HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",游戏风云HD
-http://123.145.21.58:8004/rtp/225.0.4.237:7980
-#EXTINF:-1 tvg-id="快乐垂钓HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",快乐垂钓HD
-http://123.145.21.58:8004/rtp/225.0.4.213:7980
-#EXTINF:-1 tvg-id="生活时尚HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",生活时尚HD
-http://123.145.21.58:8004/rtp/225.0.4.241:7980
-#EXTINF:-1 tvg-id="中国交通HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",中国交通HD
-http://123.145.21.58:8004/rtp/225.0.4.125:7980
-#EXTINF:-1 tvg-id="优优宝贝HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",优优宝贝HD
-http://123.145.21.58:8004/rtp/225.0.4.126:7980
-#EXTINF:-1 tvg-id="动漫秀场HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",动漫秀场HD
-http://123.145.21.58:8004/rtp/225.0.4.236:7980
-#EXTINF:-1 tvg-id="重庆卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.187:7980
-#EXTINF:-1 tvg-id="江苏卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",江苏卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.79:7980
-#EXTINF:-1 tvg-id="浙江卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",浙江卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.81:7980
-#EXTINF:-1 tvg-id="东方卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",东方卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.80:7980
-#EXTINF:-1 tvg-id="深圳卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",深圳卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.202:7980
-#EXTINF:-1 tvg-id="北京卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",北京卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.78:7980
-#EXTINF:-1 tvg-id="山东卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",山东卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.199:7980
-#EXTINF:-1 tvg-id="天津卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",天津卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.82:7980
-#EXTINF:-1 tvg-id="贵州卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",贵州卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.175:7980
-#EXTINF:-1 tvg-id="四川卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",四川卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.204:7980
-#EXTINF:-1 tvg-id="黑龙江卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",黑龙江卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.201:7980
-#EXTINF:-1 tvg-id="安徽卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",安徽卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.133:7980
-#EXTINF:-1 tvg-id="江西卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",江西卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.203:7980
-#EXTINF:-1 tvg-id="湖北卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",湖北卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.217:7980
-#EXTINF:-1 tvg-id="东南卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",东南卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.200:7980
-#EXTINF:-1 tvg-id="辽宁卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",辽宁卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.98:7980
-#EXTINF:-1 tvg-id="湖南卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",湖南卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.75:7980
-#EXTINF:-1 tvg-id="广东卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",广东卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.84:7980
-#EXTINF:-1 tvg-id="河北卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",河北卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.174:7980
-#EXTINF:-1 tvg-id="甘肃卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",甘肃卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.181:7980
-#EXTINF:-1 tvg-id="新疆卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",新疆卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.60:7980
-#EXTINF:-1 tvg-id="西藏卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",西藏卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.67:7980
-#EXTINF:-1 tvg-id="兵团卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",兵团卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.72:7980
-#EXTINF:-1 tvg-id="山东教育卫视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",山东教育卫视HD
-http://123.145.21.58:8004/rtp/225.0.4.183:7980
-#EXTINF:-1 tvg-id="都市剧场HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",都市剧场HD
-http://123.145.21.58:8004/rtp/225.0.4.235:7980
-#EXTINF:-1 tvg-id="欢笑剧场HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",欢笑剧场HD
-http://123.145.21.58:8004/rtp/225.0.4.234:7980
-#EXTINF:-1 tvg-id="重庆新闻HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆新闻HD
-http://123.145.21.58:8004/rtp/225.0.4.188:7980
-#EXTINF:-1 tvg-id="重庆影视剧HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆影视剧HD
-http://123.145.21.58:8004/rtp/225.0.4.192:7980
-#EXTINF:-1 tvg-id="重庆新农村HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆新农村HD
-http://123.145.21.58:8004/rtp/225.0.4.189:7980
-#EXTINF:-1 tvg-id="重庆少儿HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆少儿HD
-http://123.145.21.58:8004/rtp/225.0.4.191:7980
-#EXTINF:-1 tvg-id="重庆社会与法HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆社会与法HD
-http://123.145.21.58:8004/rtp/225.0.4.190:7980
-#EXTINF:-1 tvg-id="重庆红叶HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆红叶HD
-http://123.145.21.58:8004/rtp/225.0.4.193:7980
-#EXTINF:-1 tvg-id="重庆红岩文化HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆红岩文化HD
-http://123.145.21.58:8004/rtp/225.0.4.196:7980
-#EXTINF:-1 tvg-id="重庆汽摩HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆汽摩HD
-http://123.145.21.58:8004/rtp/225.0.4.195:7980
-#EXTINF:-1 tvg-id="重庆移动HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆移动HD
-http://123.145.21.58:8004/rtp/225.0.4.215:7980
-#EXTINF:-1 tvg-id="求索记录HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",求索记录HD
-http://123.145.21.58:8004/rtp/225.0.4.232:7980
-#EXTINF:-1 tvg-id="精彩影视HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",精彩影视HD
-http://123.145.21.58:8004/rtp/225.0.4.231:7980
-#EXTINF:-1 tvg-id="IPTV8+(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",IPTV8+(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.54:7980
-#EXTINF:-1 tvg-id="IPTV相声小品(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",IPTV相声小品(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.56:7980
-#EXTINF:-1 tvg-id="IPTV野外(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",IPTV野外(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.57:7980
-#EXTINF:-1 tvg-id="光影(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",光影(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.162:7980
-#EXTINF:-1 tvg-id="军事(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",军事(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.154:7980
-#EXTINF:-1 tvg-id="军旅剧场(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",军旅剧场(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.146:7980
-#EXTINF:-1 tvg-id="动作影院(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",动作影院(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.170:7980
-#EXTINF:-1 tvg-id="动画(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",动画(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.158:7980
-#EXTINF:-1 tvg-id="古装剧场(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",古装剧场(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.147:7980
-#EXTINF:-1 tvg-id="台球(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",台球(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.163:7980
-#EXTINF:-1 tvg-id="喜剧影院(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",喜剧影院(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.169:7980
-#EXTINF:-1 tvg-id="地理(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",地理(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.149:7980
-#EXTINF:-1 tvg-id="城市剧场(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",城市剧场(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.145:7980
-#EXTINF:-1 tvg-id="好学生(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",好学生(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.159:7980
-#EXTINF:-1 tvg-id="家庭影院(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",家庭影院(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.171:7980
-#EXTINF:-1 tvg-id="星影(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",星影(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.172:7980
-#EXTINF:-1 tvg-id="武侠剧场(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",武侠剧场(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.168:7980
-#EXTINF:-1 tvg-id="武术(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",武术(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.165:7980
-#EXTINF:-1 tvg-id="热播剧场(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",热播剧场(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.47:7980
-#EXTINF:-1 tvg-id="爱体育(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",爱体育(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.53:7980
-#EXTINF:-1 tvg-id="爱电影(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",爱电影(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.50:7980
-#EXTINF:-1 tvg-id="爱综艺(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",爱综艺(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.51:7980
-#EXTINF:-1 tvg-id="精选(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",精选(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.152:7980
-#EXTINF:-1 tvg-id="经典电影(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",经典电影(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.48:7980
-#EXTINF:-1 tvg-id="美人(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",美人(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.151:7980
-#EXTINF:-1 tvg-id="美妆(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",美妆(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.150:7980
-#EXTINF:-1 tvg-id="茶频道HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",茶频道HD
-http://123.145.21.58:8004/rtp/225.0.4.233:7980
-#EXTINF:-1 tvg-id="解密(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",解密(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.153:7980
-#EXTINF:-1 tvg-id="足球(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",足球(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.167:7980
-#EXTINF:-1 tvg-id="重庆娱乐HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆娱乐HD
-http://123.145.21.58:8004/rtp/225.0.4.194:7980
-#EXTINF:-1 tvg-id="金色频道HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",金色频道HD
-http://123.145.21.58:8004/rtp/225.0.4.239:7980
-#EXTINF:-1 tvg-id="音乐现场(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",音乐现场(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.148:7980
-#EXTINF:-1 tvg-id="高网(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",高网(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.166:7980
-#EXTINF:-1 tvg-id="魅力时尚(轮播频道)HD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",魅力时尚(轮播频道)HD
-http://123.145.21.58:8004/rtp/225.0.4.49:7980
-#EXTINF:-1 tvg-id="CCTV1SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV1SD
-http://123.145.21.58:8004/rtp/225.0.4.1:7980
-#EXTINF:-1 tvg-id="CCTV2SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV2SD
-http://123.145.21.58:8004/rtp/225.0.4.2:7980
-#EXTINF:-1 tvg-id="CCTV3SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV3SD
-http://123.145.21.58:8004/rtp/225.0.4.138:7980
-#EXTINF:-1 tvg-id="CCTV4SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV4SD
-http://123.145.21.58:8004/rtp/225.0.4.3:7980
-#EXTINF:-1 tvg-id="CCTV5SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV5SD
-http://123.145.21.58:8004/rtp/225.0.4.139:7980
-#EXTINF:-1 tvg-id="CCTV6SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV6SD
-http://123.145.21.58:8004/rtp/225.0.4.140:7980
-#EXTINF:-1 tvg-id="CCTV7SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV7SD
-http://123.145.21.58:8004/rtp/225.0.4.4:7980
-#EXTINF:-1 tvg-id="CCTV8SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV8SD
-http://123.145.21.58:8004/rtp/225.0.4.141:7980
-#EXTINF:-1 tvg-id="CCTV9SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV9SD
-http://123.145.21.58:8004/rtp/225.0.4.5:7980
-#EXTINF:-1 tvg-id="CCTV10SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV10SD
-http://123.145.21.58:8004/rtp/225.0.4.6:7980
-#EXTINF:-1 tvg-id="CCTV11SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV11SD
-http://123.145.21.58:8004/rtp/225.0.4.7:7980
-#EXTINF:-1 tvg-id="CCTV12SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV12SD
-http://123.145.21.58:8004/rtp/225.0.4.8:7980
-#EXTINF:-1 tvg-id="CCTV13SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV13SD
-http://123.145.21.58:8004/rtp/225.0.4.9:7980
-#EXTINF:-1 tvg-id="CCTV14SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV14SD
-http://123.145.21.58:8004/rtp/225.0.4.10:7980
-#EXTINF:-1 tvg-id="CCTV15SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV15SD
-http://123.145.21.58:8004/rtp/225.0.4.11:7980
-#EXTINF:-1 tvg-id="CCTV17SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CCTV17SD
-http://123.145.21.58:8004/rtp/225.0.4.180:7980
-#EXTINF:-1 tvg-id="CGTNSD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",CGTNSD
-http://123.145.21.58:8004/rtp/225.0.4.12:7980
-#EXTINF:-1 tvg-id="江苏卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",江苏卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.15:7980
-#EXTINF:-1 tvg-id="浙江卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",浙江卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.14:7980
-#EXTINF:-1 tvg-id="东方卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",东方卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.29:7980
-#EXTINF:-1 tvg-id="深圳卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",深圳卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.27:7980
-#EXTINF:-1 tvg-id="北京卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",北京卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.17:7980
-#EXTINF:-1 tvg-id="山东卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",山东卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.20:7980
-#EXTINF:-1 tvg-id="天津卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",天津卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.18:7980
-#EXTINF:-1 tvg-id="贵州卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",贵州卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.26:7980
-#EXTINF:-1 tvg-id="四川卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",四川卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.24:7980
-#EXTINF:-1 tvg-id="云南卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",云南卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.21:7980
-#EXTINF:-1 tvg-id="广西卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",广西卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.34:7980
-#EXTINF:-1 tvg-id="黑龙江卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",黑龙江卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.23:7980
-#EXTINF:-1 tvg-id="安徽卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",安徽卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.16:7980
-#EXTINF:-1 tvg-id="山西卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",山西卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.37:7980
-#EXTINF:-1 tvg-id="江西卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",江西卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.25:7980
-#EXTINF:-1 tvg-id="湖北卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",湖北卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.28:7980
-#EXTINF:-1 tvg-id="旅游卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",旅游卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.40:7980
-#EXTINF:-1 tvg-id="旅游卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",旅游卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.216:7980
-#EXTINF:-1 tvg-id="陕西卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",陕西卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.36:7980
-#EXTINF:-1 tvg-id="东南卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",东南卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.31:7980
-#EXTINF:-1 tvg-id="吉林卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",吉林卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.35:7980
-#EXTINF:-1 tvg-id="吉林卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",吉林卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.225:7980
-#EXTINF:-1 tvg-id="辽宁卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",辽宁卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.19:7980
-#EXTINF:-1 tvg-id="内蒙古卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",内蒙古卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.38:7980
-#EXTINF:-1 tvg-id="湖南卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",湖南卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.13:7980
-#EXTINF:-1 tvg-id="广东卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",广东卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.33:7980
-#EXTINF:-1 tvg-id="河南卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",河南卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.124:7980
-#EXTINF:-1 tvg-id="河南卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",河南卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.22:7980
-#EXTINF:-1 tvg-id="河北卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",河北卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.32:7980
-#EXTINF:-1 tvg-id="宁夏卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",宁夏卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.41:7980
-#EXTINF:-1 tvg-id="青海卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",青海卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.39:7980
-#EXTINF:-1 tvg-id="新疆卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",新疆卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.43:7980
-#EXTINF:-1 tvg-id="西藏卫视SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",西藏卫视SD
-http://123.145.21.58:8004/rtp/225.0.4.42:7980
-#EXTINF:-1 tvg-id="金鹰卡通SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",金鹰卡通SD
-http://123.145.21.58:8004/rtp/225.0.4.46:7980
-#EXTINF:-1 tvg-id="嘉佳卡通SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",嘉佳卡通SD
-http://123.145.21.58:8004/rtp/225.0.4.221:7980
-#EXTINF:-1 tvg-id="卡酷少儿SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",卡酷少儿SD
-http://123.145.21.58:8004/rtp/225.0.4.45:7980
-#EXTINF:-1 tvg-id="重庆新闻SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",重庆新闻SD
-http://123.145.21.58:8004/rtp/225.0.4.59:7980
-#EXTINF:-1 tvg-id="财富天下SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",财富天下SD
-http://123.145.21.58:8004/rtp/225.0.4.112:7980
-#EXTINF:-1 tvg-id="财富天下SD" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市渝北区组播 重庆联通",财富天下SD
-http://123.145.21.58:8004/rtp/225.0.4.112:7980
+# source_ip=106.87.49.27 rank=1 updated_at=2026-01-05 01:04:30
+#EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV1
+http://106.87.49.27:8888/rtp/235.254.197.250:7980
+#EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV1
+http://106.87.49.27:8888/rtp/235.254.199.51:7980
+#EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV1
+http://106.87.49.27:8888/rtp/235.254.199.147:7980
+#EXTINF:-1 tvg-id="CCTV2" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV2
+http://106.87.49.27:8888/rtp/235.254.199.52:7980
+#EXTINF:-1 tvg-id="CCTV3" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV3
+http://106.87.49.27:8888/rtp/235.254.199.53:7980
+#EXTINF:-1 tvg-id="CCTV4" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV4
+http://106.87.49.27:8888/rtp/235.254.199.183:7980
+#EXTINF:-1 tvg-id="CCTV5" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV5
+http://106.87.49.27:8888/rtp/235.254.199.54:7980
+#EXTINF:-1 tvg-id="CCTV5" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV5
+http://106.87.49.27:8888/rtp/235.254.199.146:7980
+#EXTINF:-1 tvg-id="CCTV5+" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV5+
+http://106.87.49.27:8888/rtp/235.254.199.121:7980
+#EXTINF:-1 tvg-id="CCTV6" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV6
+http://106.87.49.27:8888/rtp/235.254.199.55:7980
+#EXTINF:-1 tvg-id="CCTV7" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV7
+http://106.87.49.27:8888/rtp/235.254.199.56:7980
+#EXTINF:-1 tvg-id="CCTV8" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV8
+http://106.87.49.27:8888/rtp/235.254.199.57:7980
+#EXTINF:-1 tvg-id="CCTV8" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV8
+http://106.87.49.27:8888/rtp/235.254.199.92:7980
+#EXTINF:-1 tvg-id="CCTV9" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV9
+http://106.87.49.27:8888/rtp/235.254.199.58:7980
+#EXTINF:-1 tvg-id="CCTV10" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV10
+http://106.87.49.27:8888/rtp/235.254.199.59:7980
+#EXTINF:-1 tvg-id="CCTV11" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV11
+http://106.87.49.27:8888/rtp/235.254.197.161:7980
+#EXTINF:-1 tvg-id="CCTV12" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV12
+http://106.87.49.27:8888/rtp/235.254.199.60:7980
+#EXTINF:-1 tvg-id="CCTV13" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV13
+http://106.87.49.27:8888/rtp/235.254.197.162:7980
+#EXTINF:-1 tvg-id="CCTV14" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV14
+http://106.87.49.27:8888/rtp/235.254.199.61:7980
+#EXTINF:-1 tvg-id="CCTV15" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV15
+http://106.87.49.27:8888/rtp/235.254.197.163:7980
+#EXTINF:-1 tvg-id="CCTV17" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV17
+http://106.87.49.27:8888/rtp/235.254.199.130:7980
+#EXTINF:-1 tvg-id="CETV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CETV1
+http://106.87.49.27:8888/rtp/235.254.199.196:7980
+#EXTINF:-1 tvg-id="CETV4" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CETV4
+http://106.87.49.27:8888/rtp/235.254.197.53:7980
+#EXTINF:-1 tvg-id="北京卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",北京卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.52:7980
+#EXTINF:-1 tvg-id="北京卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",北京卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.50:7980
+#EXTINF:-1 tvg-id="东方卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",东方卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.190:7980
+#EXTINF:-1 tvg-id="广东卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",广东卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.55:7980
+#EXTINF:-1 tvg-id="深圳卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",深圳卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.56:7980
+#EXTINF:-1 tvg-id="湖南卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",湖南卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.196:7980
+#EXTINF:-1 tvg-id="山东卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",山东卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.195:7980
+#EXTINF:-1 tvg-id="浙江卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",浙江卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.194:7980
+#EXTINF:-1 tvg-id="江苏卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",江苏卫视4K
+http://106.87.49.27:8888/rtp/235.254.197.191:7980
+#EXTINF:-1 tvg-id="华数电影4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电影4K
+http://106.87.49.27:8888/rtp/235.254.199.102:7980
+#EXTINF:-1 tvg-id="CHC影迷电影" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CHC影迷电影
+http://106.87.49.27:8888/rtp/235.254.199.248:7980
+#EXTINF:-1 tvg-id="CHC家庭影院" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CHC家庭影院
+http://106.87.49.27:8888/rtp/235.254.199.246:7980
+#EXTINF:-1 tvg-id="CHC动作电影" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CHC动作电影
+http://106.87.49.27:8888/rtp/235.254.199.247:7980
+#EXTINF:-1 tvg-id="风云足球" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",风云足球
+http://106.87.49.27:8888/rtp/235.254.199.204:7980
+#EXTINF:-1 tvg-id="电视指南" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",电视指南
+http://106.87.49.27:8888/rtp/235.254.199.189:7980
+#EXTINF:-1 tvg-id="女性时尚" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",女性时尚
+http://106.87.49.27:8888/rtp/235.254.199.195:7980
+#EXTINF:-1 tvg-id="高尔夫网球" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",高尔夫网球
+http://106.87.49.27:8888/rtp/235.254.199.192:7980
+#EXTINF:-1 tvg-id="央视台球" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",央视台球
+http://106.87.49.27:8888/rtp/235.254.199.193:7980
+#EXTINF:-1 tvg-id="央视文化精品" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",央视文化精品
+http://106.87.49.27:8888/rtp/235.254.199.210:7980
+#EXTINF:-1 tvg-id="梨园频道" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",梨园频道
+http://106.87.49.27:8888/rtp/235.254.199.163:7980
+#EXTINF:-1 tvg-id="中学生" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",中学生
+http://106.87.49.27:8888/rtp/235.254.197.226:7980
+#EXTINF:-1 tvg-id="卫生健康" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",卫生健康
+http://106.87.49.27:8888/rtp/235.254.197.146:7980
+#EXTINF:-1 tvg-id="法治天地" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",法治天地
+http://106.87.49.27:8888/rtp/235.254.197.154:7980
+#EXTINF:-1 tvg-id="游戏风云" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",游戏风云
+http://106.87.49.27:8888/rtp/235.254.197.159:7980
+#EXTINF:-1 tvg-id="茶频道" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",茶频道
+http://106.87.49.27:8888/rtp/235.254.199.198:7980
+#EXTINF:-1 tvg-id="金色学堂" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",金色学堂
+http://106.87.49.27:8888/rtp/235.254.197.157:7980
+#EXTINF:-1 tvg-id="武术世界" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",武术世界
+http://106.87.49.27:8888/rtp/235.254.199.107:7980
+#EXTINF:-1 tvg-id="文物宝库" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",文物宝库
+http://106.87.49.27:8888/rtp/235.254.199.132:7980
+#EXTINF:-1 tvg-id="快乐垂钓" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",快乐垂钓
+http://106.87.49.27:8888/rtp/235.254.199.191:7980
+#EXTINF:-1 tvg-id="生活时尚" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",生活时尚
+http://106.87.49.27:8888/rtp/235.254.197.160:7980
+#EXTINF:-1 tvg-id="中国交通" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",中国交通
+http://106.87.49.27:8888/rtp/235.254.197.145:7980
+#EXTINF:-1 tvg-id="优优宝贝" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",优优宝贝
+http://106.87.49.27:8888/rtp/235.254.197.137:7980
+#EXTINF:-1 tvg-id="乐游" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",乐游
+http://106.87.49.27:8888/rtp/235.254.197.153:7980
+#EXTINF:-1 tvg-id="动漫秀场" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",动漫秀场
+http://106.87.49.27:8888/rtp/235.254.197.152:7980
+#EXTINF:-1 tvg-id="重庆卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆卫视
+http://106.87.49.27:8888/rtp/235.254.197.237:7980
+#EXTINF:-1 tvg-id="江苏卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",江苏卫视
+http://106.87.49.27:8888/rtp/235.254.199.64:7980
+#EXTINF:-1 tvg-id="浙江卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",浙江卫视
+http://106.87.49.27:8888/rtp/235.254.199.63:7980
+#EXTINF:-1 tvg-id="东方卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",东方卫视
+http://106.87.49.27:8888/rtp/235.254.199.73:7980
+#EXTINF:-1 tvg-id="深圳卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",深圳卫视
+http://106.87.49.27:8888/rtp/235.254.199.71:7980
+#EXTINF:-1 tvg-id="北京卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",北京卫视
+http://106.87.49.27:8888/rtp/235.254.199.66:7980
+#EXTINF:-1 tvg-id="山东卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",山东卫视
+http://106.87.49.27:8888/rtp/235.254.199.69:7980
+#EXTINF:-1 tvg-id="天津卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",天津卫视
+http://106.87.49.27:8888/rtp/235.254.199.67:7980
+#EXTINF:-1 tvg-id="贵州卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",贵州卫视
+http://106.87.49.27:8888/rtp/235.254.199.185:7980
+#EXTINF:-1 tvg-id="四川卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",四川卫视
+http://106.87.49.27:8888/rtp/235.254.199.175:7980
+#EXTINF:-1 tvg-id="云南卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",云南卫视
+http://106.87.49.27:8888/rtp/235.254.197.177:7980
+#EXTINF:-1 tvg-id="黑龙江卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",黑龙江卫视
+http://106.87.49.27:8888/rtp/235.254.197.243:7980
+#EXTINF:-1 tvg-id="黑龙江卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",黑龙江卫视
+http://106.87.49.27:8888/rtp/235.254.199.70:7980
+#EXTINF:-1 tvg-id="安徽卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",安徽卫视
+http://106.87.49.27:8888/rtp/235.254.199.65:7980
+#EXTINF:-1 tvg-id="江西卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",江西卫视
+http://106.87.49.27:8888/rtp/235.254.199.190:7980
+#EXTINF:-1 tvg-id="湖北卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",湖北卫视
+http://106.87.49.27:8888/rtp/235.254.199.72:7980
+#EXTINF:-1 tvg-id="东南卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",东南卫视
+http://106.87.49.27:8888/rtp/235.254.199.129:7980
+#EXTINF:-1 tvg-id="辽宁卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",辽宁卫视
+http://106.87.49.27:8888/rtp/235.254.199.68:7980
+#EXTINF:-1 tvg-id="湖南卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",湖南卫视
+http://106.87.49.27:8888/rtp/235.254.199.62:7980
+#EXTINF:-1 tvg-id="广东卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",广东卫视
+http://106.87.49.27:8888/rtp/235.254.197.186:7980
+#EXTINF:-1 tvg-id="河南卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",河南卫视
+http://106.87.49.27:8888/rtp/235.254.199.135:7980
+#EXTINF:-1 tvg-id="河北卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",河北卫视
+http://106.87.49.27:8888/rtp/235.254.199.184:7980
+#EXTINF:-1 tvg-id="甘肃卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",甘肃卫视
+http://106.87.49.27:8888/rtp/235.254.197.176:7980
+#EXTINF:-1 tvg-id="新疆卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",新疆卫视
+http://106.87.49.27:8888/rtp/235.254.197.178:7980
+#EXTINF:-1 tvg-id="西藏卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",西藏卫视
+http://106.87.49.27:8888/rtp/235.254.197.184:7980
+#EXTINF:-1 tvg-id="兵团卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",兵团卫视
+http://106.87.49.27:8888/rtp/235.254.197.183:7980
+#EXTINF:-1 tvg-id="山东教育卫视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",山东教育卫视
+http://106.87.49.27:8888/rtp/235.254.197.54:7980
+#EXTINF:-1 tvg-id="东方财经" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",东方财经
+http://106.87.49.27:8888/rtp/235.254.199.103:7980
+#EXTINF:-1 tvg-id="都市剧场" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",都市剧场
+http://106.87.49.27:8888/rtp/235.254.197.151:7980
+#EXTINF:-1 tvg-id="欢笑剧场" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",欢笑剧场
+http://106.87.49.27:8888/rtp/235.254.197.150:7980
+#EXTINF:-1 tvg-id="重庆新闻" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆新闻
+http://106.87.49.27:8888/rtp/235.254.197.199:7980
+#EXTINF:-1 tvg-id="重庆影视剧" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆影视剧
+http://106.87.49.27:8888/rtp/235.254.199.180:7980
+#EXTINF:-1 tvg-id="重庆文体娱乐" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆文体娱乐
+http://106.87.49.27:8888/rtp/235.254.199.187:7980
+#EXTINF:-1 tvg-id="重庆新农村" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆新农村
+http://106.87.49.27:8888/rtp/235.254.199.186:7980
+#EXTINF:-1 tvg-id="重庆少儿" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆少儿
+http://106.87.49.27:8888/rtp/235.254.199.166:7980
+#EXTINF:-1 tvg-id="重庆社会与法" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆社会与法
+http://106.87.49.27:8888/rtp/235.254.199.181:7980
+#EXTINF:-1 tvg-id="重庆红叶" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆红叶
+http://106.87.49.27:8888/rtp/235.254.199.188:7980
+#EXTINF:-1 tvg-id="重庆红岩文化" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆红岩文化
+http://106.87.49.27:8888/rtp/235.254.199.182:7980
+#EXTINF:-1 tvg-id="重庆汽摩" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆汽摩
+http://106.87.49.27:8888/rtp/235.254.199.169:7980
+#EXTINF:-1 tvg-id="重庆移动" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重庆移动
+http://106.87.49.27:8888/rtp/235.254.199.170:7980
+#EXTINF:-1 tvg-id="重广融媒" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",重广融媒
+http://106.87.49.27:8888/rtp/235.254.197.114:7980
+#EXTINF:-1 tvg-id="开州综合" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",开州综合
+http://106.87.49.27:8888/rtp/235.254.199.203:7980
+#EXTINF:-1 tvg-id="开州综合" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",开州综合
+http://106.87.49.27:8888/rtp/235.254.199.145:7980
+#EXTINF:-1 tvg-id="央视网CCTV3" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",央视网CCTV3
+http://106.87.49.27:8888/rtp/235.254.199.88:7980
+#EXTINF:-1 tvg-id="央视网CCTV5" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",央视网CCTV5
+http://106.87.49.27:8888/rtp/235.254.199.96:7980
+#EXTINF:-1 tvg-id="央视网CCTV10" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",央视网CCTV10
+http://106.87.49.27:8888/rtp/235.254.199.82:7980
+#EXTINF:-1 tvg-id="求索记录" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",求索记录
+http://106.87.49.27:8888/rtp/235.254.199.251:7980
+#EXTINF:-1 tvg-id="精彩导视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",精彩导视
+http://106.87.49.27:8888/rtp/235.254.197.127:7980
+#EXTINF:-1 tvg-id="精彩影视" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",精彩影视
+http://106.87.49.27:8888/rtp/235.254.199.250:7980
+#EXTINF:-1 tvg-id="1央视网CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",1央视网CCTV1
+http://106.87.49.27:8888/rtp/235.254.199.79:7980
+#EXTINF:-1 tvg-id="2央视网CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",2央视网CCTV1
+http://106.87.49.27:8888/rtp/235.254.199.80:7980
+#EXTINF:-1 tvg-id="3央视网CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",3央视网CCTV1
+http://106.87.49.27:8888/rtp/235.254.199.78:7980
+#EXTINF:-1 tvg-id="CCTV世界地理" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV世界地理
+http://106.87.49.27:8888/rtp/235.254.199.194:7980
+#EXTINF:-1 tvg-id="CCTV兵器科技" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV兵器科技
+http://106.87.49.27:8888/rtp/235.254.199.202:7980
+#EXTINF:-1 tvg-id="CCTV怀旧剧场" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV怀旧剧场
+http://106.87.49.27:8888/rtp/235.254.199.205:7980
+#EXTINF:-1 tvg-id="CCTV第一剧场" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV第一剧场
+http://106.87.49.27:8888/rtp/235.254.199.211:7980
+#EXTINF:-1 tvg-id="CCTV风云剧场" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV风云剧场
+http://106.87.49.27:8888/rtp/235.254.199.207:7980
+#EXTINF:-1 tvg-id="CCTV风云音乐" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",CCTV风云音乐
+http://106.87.49.27:8888/rtp/235.254.199.208:7980
+#EXTINF:-1 tvg-id="IPTV3+" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",IPTV3+
+http://106.87.49.27:8888/rtp/235.254.199.13:7980
+#EXTINF:-1 tvg-id="IPTV5+" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",IPTV5+
+http://106.87.49.27:8888/rtp/235.254.199.14:7980
+#EXTINF:-1 tvg-id="IPTV10+" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",IPTV10+
+http://106.87.49.27:8888/rtp/235.254.199.119:7980
+#EXTINF:-1 tvg-id="IPTV11+" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",IPTV11+
+http://106.87.49.27:8888/rtp/235.254.199.118:7980
+#EXTINF:-1 tvg-id="IPTV15+" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",IPTV15+
+http://106.87.49.27:8888/rtp/235.254.199.77:7980
+#EXTINF:-1 tvg-id="IPTV少儿" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",IPTV少儿
+http://106.87.49.27:8888/rtp/235.254.199.15:7980
+#EXTINF:-1 tvg-id="IPTV电视剧" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",IPTV电视剧
+http://106.87.49.27:8888/rtp/235.254.199.74:7980
+#EXTINF:-1 tvg-id="华数卡通" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数卡通
+http://106.87.49.27:8888/rtp/235.254.199.87:7980
+#EXTINF:-1 tvg-id="华数电影1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电影1
+http://106.87.49.27:8888/rtp/235.254.199.116:7980
+#EXTINF:-1 tvg-id="华数电影2" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电影2
+http://106.87.49.27:8888/rtp/235.254.199.114:7980
+#EXTINF:-1 tvg-id="华数电影3" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电影3
+http://106.87.49.27:8888/rtp/235.254.199.81:7980
+#EXTINF:-1 tvg-id="华数电影4" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电影4
+http://106.87.49.27:8888/rtp/235.254.199.98:7980
+#EXTINF:-1 tvg-id="华数电影5" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电影5
+http://106.87.49.27:8888/rtp/235.254.199.99:7980
+#EXTINF:-1 tvg-id="华数电影6" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电影6
+http://106.87.49.27:8888/rtp/235.254.199.100:7980
+#EXTINF:-1 tvg-id="华数电影7" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电影7
+http://106.87.49.27:8888/rtp/235.254.199.101:7980
+#EXTINF:-1 tvg-id="华数电视剧1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电视剧1
+http://106.87.49.27:8888/rtp/235.254.199.115:7980
+#EXTINF:-1 tvg-id="华数电视剧2" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电视剧2
+http://106.87.49.27:8888/rtp/235.254.199.16:7980
+#EXTINF:-1 tvg-id="华数电视剧3" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电视剧3
+http://106.87.49.27:8888/rtp/235.254.199.117:7980
+#EXTINF:-1 tvg-id="华数电视剧4" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电视剧4
+http://106.87.49.27:8888/rtp/235.254.199.113:7980
+#EXTINF:-1 tvg-id="华数电视剧5" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电视剧5
+http://106.87.49.27:8888/rtp/235.254.199.75:7980
+#EXTINF:-1 tvg-id="华数电视剧6" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电视剧6
+http://106.87.49.27:8888/rtp/235.254.199.76:7980
+#EXTINF:-1 tvg-id="华数电视剧7" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电视剧7
+http://106.87.49.27:8888/rtp/235.254.199.91:7980
+#EXTINF:-1 tvg-id="华数电视剧8" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",华数电视剧8
+http://106.87.49.27:8888/rtp/235.254.199.97:7980
+#EXTINF:-1 tvg-id="央视网CCTV7" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",央视网CCTV7
+http://106.87.49.27:8888/rtp/235.254.199.83:7980
+#EXTINF:-1 tvg-id="央视网CCTV9" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",央视网CCTV9
+http://106.87.49.27:8888/rtp/235.254.199.94:7980
+#EXTINF:-1 tvg-id="未识别" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",未识别
+http://106.87.49.27:8888/rtp/235.254.199.134:7980
+#EXTINF:-1 tvg-id="电影4" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",电影4
+http://106.87.49.27:8888/rtp/235.254.199.95:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.130:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.131:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.132:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.133:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.134:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.135:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.136:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.233:7980
+#EXTINF:-1 tvg-id="百事通宣传" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传
+http://106.87.49.27:8888/rtp/235.254.197.236:7980
+#EXTINF:-1 tvg-id="百事通宣传2" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="重庆市万州区组播 重庆电信",百事通宣传2
+http://106.87.49.27:8888/rtp/235.254.197.235:7980

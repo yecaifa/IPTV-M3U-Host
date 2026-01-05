@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=115.211.22.90 rank=1 updated_at=2026-01-04 12:26:39
+# source_ip=115.211.22.90 rank=1 updated_at=2026-01-05 01:08:02
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="浙江省金华市组播 浙江电信",CCTV1
 http://115.211.22.90:8888/rtp/233.50.201.222:5140
 #EXTINF:-1 tvg-id="CCTV1" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="浙江省金华市组播 浙江电信",CCTV1

@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=117.64.102.156 rank=1 updated_at=2026-01-04 12:27:09
+# source_ip=117.64.102.156 rank=1 updated_at=2026-01-05 01:08:32
 #EXTINF:-1 tvg-id="东方卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="安徽省合肥市组播 安徽电信",东方卫视4K
 http://117.64.102.156:4022/rtp/238.1.79.39:4428
 #EXTINF:-1 tvg-id="浙江卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="安徽省合肥市组播 安徽电信",浙江卫视4K

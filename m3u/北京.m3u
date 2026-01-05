@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=183.241.47.8 rank=1 updated_at=2026-01-04 12:21:31
+# source_ip=183.241.47.8 rank=1 updated_at=2026-01-05 01:02:58
 #EXTINF:-1 tvg-id="CCTV4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="北京市朝阳区组播 北京移动",CCTV4K
 http://183.241.47.8:5444/rtp/228.1.1.227:2000
 #EXTINF:-1 tvg-id="北京卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="北京市朝阳区组播 北京移动",北京卫视4K
