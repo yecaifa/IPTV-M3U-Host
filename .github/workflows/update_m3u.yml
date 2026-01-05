@@ -25,7 +25,7 @@ on:
         default: "1"
 
   schedule:
-    - cron: "0 */12 * * *"   # 每12小时跑一次（UTC时间），批量更耗时，建议不要太频繁
+    - cron: "0 0 */3 * *"  # 每3天的0点（UTC时间）执行一次
 
 permissions:
   contents: write
