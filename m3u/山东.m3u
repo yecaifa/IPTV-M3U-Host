@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=39.65.43.151 rank=1 updated_at=2026-01-05 01:10:05
+# source_ip=39.65.43.151 rank=1 updated_at=2026-01-05 12:31:46
 #EXTINF:-1 tvg-id="浙江卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="山东省青岛市黄岛区组播 山东联通",浙江卫视4K
 http://39.65.43.151:4004/rtp/239.253.242.27:8000
 #EXTINF:-1 tvg-id="湖南卫视4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="山东省青岛市黄岛区组播 山东联通",湖南卫视4K

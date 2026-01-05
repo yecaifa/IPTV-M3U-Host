@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://fy.188766.xyz/e.xml" tvg-shift="0"
-# source_ip=36.44.74.164 rank=1 updated_at=2026-01-05 01:14:45
+# source_ip=36.44.74.164 rank=1 updated_at=2026-01-05 12:37:44
 #EXTINF:-1 tvg-id="CCTV4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="陕西省西安市莲湖区组播 陕西电信",CCTV4K
 http://36.44.74.164:5555/rtp/239.111.205.40:5140
 #EXTINF:-1 tvg-id="CCTV4K" tvg-logo="https://gcore.jsdelivr.net/gh/taksssss/tv/icon/.png" group-title="陕西省西安市莲湖区组播 陕西电信",CCTV4K
